@@ -6,12 +6,17 @@ import Drawer from 'material-ui/Drawer';
 import AppBar from 'material-ui/AppBar';
 import Toolbar from 'material-ui/Toolbar';
 import List from 'material-ui/List';
+import Switch from 'material-ui/Switch';
+import Button from 'material-ui/Button';
+import { FormControlLabel, FormGroup } from 'material-ui/Form';
+import Menu, { MenuItem } from 'material-ui/Menu';
 import Typography from 'material-ui/Typography';
 import Divider from 'material-ui/Divider';
 import IconButton from 'material-ui/IconButton';
 import MenuIcon from 'material-ui-icons/Menu';
 import ChevronLeftIcon from 'material-ui-icons/ChevronLeft';
 import ChevronRightIcon from 'material-ui-icons/ChevronRight';
+import AccountCircle from 'material-ui-icons/AccountCircle';
 import { mailFolderListItems, otherMailFolderListItems } from './tileData';
 
 const drawerWidth = 240;
@@ -24,6 +29,9 @@ const styles = theme => ({
     overflow: 'hidden',
     position: 'relative',
     display: 'flex',
+  },
+  flex: {
+    flex: 1,
   },
   appBar: {
     zIndex: theme.zIndex.drawer + 1,
@@ -83,6 +91,21 @@ const styles = theme => ({
 class BasicLayout extends React.Component {
   state = {
     open: false,
+    auth: false,
+    anchorEl: null,
+  };
+
+  // 登录开关
+  handleChange = (event, checked) => {
+    this.setState({ auth: checked });
+  };
+
+  handleMenu = (event) => {
+    this.setState({ anchorEl: event.currentTarget });
+  };
+
+  handleClose = () => {
+    this.setState({ anchorEl: null });
   };
 
   handleDrawerOpen = () => {
@@ -95,9 +118,12 @@ class BasicLayout extends React.Component {
 
   render() {
     const { classes, theme } = this.props;
+    const { auth, anchorEl } = this.state;
+    const open = Boolean(anchorEl);
 
     return (
       <div className={classes.root}>
+       
         <AppBar
           position="absolute"
           className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
@@ -111,9 +137,41 @@ class BasicLayout extends React.Component {
             >
               <MenuIcon />
             </IconButton>
-            <Typography variant="title" color="inherit" noWrap>
-              Mini variant drawer
+            <Typography variant="title" color="inherit" className={classes.flex} noWrap>
+              Title
             </Typography>
+            {auth ? (
+              <div>
+                <IconButton
+                  aria-owns={open ? 'menu-appbar' : null}
+                  aria-haspopup="true"
+                  onClick={this.handleMenu}
+                  color="inherit"
+                >
+                  <AccountCircle />
+                </IconButton>
+                <Menu
+                  id="menu-appbar"
+                  anchorEl={anchorEl}
+                  anchorOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  transformOrigin={{
+                    vertical: 'top',
+                    horizontal: 'right',
+                  }}
+                  open={open}
+                  onClose={this.handleClose}
+                >
+                  <MenuItem onClick={this.handleClose}>Profile</MenuItem>
+                  <MenuItem onClick={this.handleClose}>My account</MenuItem>
+                </Menu>
+              </div>
+            ) :
+            (
+              <Button color="inherit">Login</Button>
+            )}
           </Toolbar>
         </AppBar>
         <Drawer
@@ -135,7 +193,15 @@ class BasicLayout extends React.Component {
         </Drawer>
         <main className={classes.content}>
           <div className={classes.toolbar} />
-          <Typography noWrap>{'You think water moves fast? You should see ice.'}</Typography>
+          <FormGroup>
+          <FormControlLabel
+            control={
+              <Switch checked={auth} onChange={this.handleChange} aria-label="LoginSwitch" />
+            }
+            label={auth ? 'Logout' : 'Login'}
+          />
+          </FormGroup>
+          <Typography noWrap={false}>You think water moves fast? You should see ice.</Typography>
         </main>
       </div>
     );

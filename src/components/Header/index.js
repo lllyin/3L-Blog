@@ -34,7 +34,7 @@ class MenuAppBar extends React.Component {
     this.setState({ auth: checked });
   };
 
-  handleMenu = event => {
+  handleMenu = (event) => {
     this.setState({ anchorEl: event.currentTarget });
   };
 
@@ -104,5 +104,6 @@ class MenuAppBar extends React.Component {
 MenuAppBar.propTypes = {
   classes: PropTypes.object.isRequired,
 };
+
 
 export default withStyles(styles)(MenuAppBar);

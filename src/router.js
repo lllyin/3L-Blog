@@ -1,11 +1,13 @@
 import React from 'react';
 import { Router, Route, Switch } from 'dva/router';
 import IndexPage from './routes/IndexPage';
-import Home from "./routes/Home";
-import Resume from "./routes/Resume";
-import Contact from "./routes/Contact";
+import Home from './routes/Home';
+import Resume from './routes/Resume';
+import Contact from './routes/Contact';
+import BasicLayout from './layouts/BasicLayout';
 
-function RouterConfig({ history }) {
+function RouterConfig({ history, app }) {
+  console.log('index page', history, app);
   return (
     <Router history={history}>
       <Switch>
@@ -13,6 +15,7 @@ function RouterConfig({ history }) {
         <Route path="/home" exact component={Home} />
         <Route path="/resume" exact component={Resume} />
         <Route path="/contact" exact component={Contact} />
+        <Route path="/test" render={(props) => { console.log('---', props); return (<BasicLayout {...props} />); }} />
       </Switch>
     </Router>
   );
