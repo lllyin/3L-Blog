@@ -1,7 +1,13 @@
-import React,{Component} from "react";
+import React, { Component } from "react";
+import MenuAppBar from "../../components/Header/index";
+import BasicLayout from "../../layouts/BasicLayout"
 
 export default class Home extends Component {
-  render(){
-    return <div>home page</div>
+  render() {
+    return (
+    <section>
+      <BasicLayout/>
+    </section>
+    )
   }
 }
