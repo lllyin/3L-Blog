@@ -123,7 +123,6 @@ class BasicLayout extends React.Component {
 
     return (
       <div className={classes.root}>
-       
         <AppBar
           position="absolute"
           className={classNames(classes.appBar, this.state.open && classes.appBarShift)}
@@ -169,9 +168,9 @@ class BasicLayout extends React.Component {
                 </Menu>
               </div>
             ) :
-            (
-              <Button color="inherit">Login</Button>
-            )}
+              (
+                <Button color="inherit">Login</Button>
+              )}
           </Toolbar>
         </AppBar>
         <Drawer
@@ -194,12 +193,12 @@ class BasicLayout extends React.Component {
         <main className={classes.content}>
           <div className={classes.toolbar} />
           <FormGroup>
-          <FormControlLabel
-            control={
-              <Switch checked={auth} onChange={this.handleChange} aria-label="LoginSwitch" />
-            }
-            label={auth ? 'Logout' : 'Login'}
-          />
+            <FormControlLabel
+              control={
+                <Switch checked={auth} onChange={this.handleChange} aria-label="LoginSwitch" />
+              }
+              label={auth ? 'Logout' : 'Login'}
+            />
           </FormGroup>
           <Typography noWrap={false}>You think water moves fast? You should see ice.</Typography>
         </main>

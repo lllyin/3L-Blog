@@ -7,7 +7,6 @@ import Contact from './routes/Contact';
 import BasicLayout from './layouts/BasicLayout';
 
 function RouterConfig({ history, app }) {
-  console.log('index page', history, app);
   return (
     <Router history={history}>
       <Switch>
@@ -15,7 +14,7 @@ function RouterConfig({ history, app }) {
         <Route path="/home" exact component={Home} />
         <Route path="/resume" exact component={Resume} />
         <Route path="/contact" exact component={Contact} />
-        <Route path="/test" render={(props) => { console.log('---', props); return (<BasicLayout {...props} />); }} />
+        <Route path="/test" render={(props) => { return (<BasicLayout {...props} />); }} />
       </Switch>
     </Router>
   );

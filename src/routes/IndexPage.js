@@ -18,6 +18,4 @@ function IndexPage() {
 IndexPage.propTypes = {
 };
 
-
-
 export default connect()(IndexPage);
