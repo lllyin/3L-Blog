@@ -11,9 +11,8 @@ export default class Home extends Component {
         {/* <BasicLayout /> */}
         <ResponsiveHeader />
         <Content className="home-box" style={{ marginTop: 30 }}>
-          i ame content
-          <h1> i am title</h1>
-          <h1> i am title 2</h1>
+          <h1> Home Page </h1>
+          home page content
         </Content>
       </section>
     );
