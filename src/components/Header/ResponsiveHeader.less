@@ -1,7 +1,5 @@
 .header{
- 
   position: relative;
-
   :global{
     .nav-upper{
       display: flex;
@@ -29,16 +27,20 @@
     }
     .nav-lower.open{
       display: block;
+      :local{
+        animation: toShow .6s ease;
+      }
     }    
     .nav-lower{
       width: 100%;
       display: none;
+      transition: all .25s ease;
       .nav{
         display: flex;
         flex-direction: column;
       }
       .link{
-        border: 0;
+        border-bottom: 1px solid #eaeaea;
         font-size: 14px;
         padding: 16px 20px;
         color: #000;
@@ -71,7 +73,7 @@
     }
   }
 
-  // 媒体查询
+  // 媒体查询:大屏设备生效
   :global{
     @media (min-width: 992px){
       display: flex;
@@ -80,7 +82,14 @@
       .nav-upper {
         padding: 30px 0;
       }
-      .nav-lower,.nav-lower.open{
+      .nav-lower.open{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: -2px 0 0 20px;
+      }
+      .nav-lower{
         display: flex;
         flex-direction: row;
         justify-content: space-between;
@@ -90,6 +99,7 @@
           flex-direction: row;
         }
         .link{
+          border: 0;          
           padding: 10px;
           font-size: 12px;
           color: #999;          
@@ -110,3 +120,13 @@
 }
 
 
+@keyframes toShow{
+  from{
+    opacity: 0;
+    filter: blur(3px);
+  }
+  to{
+    opacity: 1;
+    filter: blur(0);
+  }
+} 
