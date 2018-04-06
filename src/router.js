@@ -6,7 +6,7 @@ import Resume from './routes/Resume';
 import Contact from './routes/Contact';
 import BasicLayout from './layouts/BasicLayout';
 
-function RouterConfig({ history, app }) {
+function RouterConfig({ history }) {
   return (
     <Router history={history}>
       <Switch>

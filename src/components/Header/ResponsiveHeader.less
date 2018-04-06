@@ -1,0 +1,112 @@
+.header{
+ 
+  position: relative;
+
+  :global{
+    .nav-upper{
+      display: flex;
+      color: #ccc;
+      padding: 30px 20px;
+      justify-content: space-between;
+      .arrow{
+        transition: all 0.3s ease;
+        width: 35px;
+        height: 35px
+      }
+      .arrow.open{
+        transform: rotate(180deg);
+        transform-origin: center center;
+      }
+      .logo{
+        width: 65px;
+        height: 35px;
+        line-height: 35px;
+        font-weight: 600;
+        font-size: 18px;
+        color: #333;
+        letter-spacing: 1px;
+      }
+    }
+    .nav-lower.open{
+      display: block;
+    }    
+    .nav-lower{
+      width: 100%;
+      display: none;
+      .nav{
+        display: flex;
+        flex-direction: column;
+      }
+      .link{
+        border: 0;
+        font-size: 14px;
+        padding: 16px 20px;
+        color: #000;
+        text-transform: uppercase;
+        transition: color 0.2s ease;
+      }
+      .link:hover{
+        color: #000;        
+      }
+      .link.active{
+        color: #000;
+        font-size: 13px;
+      }
+    }
+    .login-btn{
+      color: #333;
+      font-size: 12px;
+    }
+    .join-btn{
+      border: 0;
+      font-size: 14px;
+      padding: 16px 20px;                
+      color: #ff0080;
+      transition: color 0.2s ease;
+    }
+    .chat-btn{
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+  }
+
+  // 媒体查询
+  :global{
+    @media (min-width: 992px){
+      display: flex;
+      max-width: 900px;
+      margin: auto;       
+      .nav-upper {
+        padding: 30px 0;
+      }
+      .nav-lower,.nav-lower.open{
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        margin: -2px 0 0 20px;
+        .nav{
+          flex-direction: row;
+        }
+        .link{
+          padding: 10px;
+          font-size: 12px;
+          color: #999;          
+        }
+        .join-btn{
+          padding: 10px;
+          font-size: 12px;
+        }
+      }
+      .arrow-box{
+        display: none;
+      }
+    }
+    a{
+      text-decoration: none;
+    }
+  }
+}
+
+

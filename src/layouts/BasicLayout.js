@@ -137,7 +137,7 @@ class BasicLayout extends React.Component {
               <MenuIcon />
             </IconButton>
             <Typography variant="title" color="inherit" className={classes.flex} noWrap>
-              Title
+              3L先生
             </Typography>
             {auth ? (
               <div>
