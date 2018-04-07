@@ -9,10 +9,13 @@
   },
   "dependencies": {
     "dva": "^2.1.0",
+    "highlight": "^0.2.4",
+    "highlight.js": "^9.12.0",
     "material-ui": "^1.0.0-beta.38",
     "material-ui-icons": "^1.0.0-beta.36",
     "react": "^16.2.0",
-    "react-dom": "^16.2.0"
+    "react-dom": "^16.2.0",
+    "remarkable": "^1.7.1"
   },
   "devDependencies": {
     "babel-plugin-dva-hmr": "^0.3.2",

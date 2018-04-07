@@ -7,7 +7,7 @@ export default class MyLife extends Component {
     return (
       <section>
         <ResponsiveHeader />
-        <Content className="home-box" style={{ marginTop: 30 }}>
+        <Content className="home-box" style={{ marginTop: 30, marginBottom: 30 }}>
           <h1> Contact Page </h1>
           contact page content
         </Content>
