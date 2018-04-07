@@ -1,2 +1,19 @@
 {
+  "entry": "src/index.js",
+  "extraBabelPlugins": [
+    "transform-decorators-legacy"
+  ],
+  "env": {
+    "development": {
+      "extraBabelPlugins": [
+        "dva-hmr"
+      ]
+    }
+  },
+  "publicPath": "/",
+  "html": {
+    "template": "./src/index.ejs"
+  },
+  "ignoreMomentLocale": true,
+  "hash": true
 }
