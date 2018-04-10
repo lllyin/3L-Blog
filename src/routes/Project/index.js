@@ -3,13 +3,12 @@ import { ResponsiveHeader } from '../../components/Header';
 import MarkdownShow from '../../components/Markdown/MarkdownShow';
 import PanelTitle from '../../components/Panel/PanelTitle';
 import { Content } from '../../components/Layout';
-import { md } from './test.txt.js';
+import { totop, lightbox, fixnav } from './totop.md.js';
 
 import styles from './index.less';
 
 export default class Project extends Component {
   render() {
-    console.log(md);
     return (
       <section style={{ paddingBottom: 20 }}>
         <ResponsiveHeader />
@@ -23,29 +22,29 @@ export default class Project extends Component {
             />
             <MarkdownShow
               className={styles['md-project']}
-              mdString={md}
+              mdString={totop}
             />
           </div>
           <div className={styles['project-item']}>
             <PanelTitle
-              title="返回顶部"
-              desc="top.js"
+              title="Light box效果"
+              desc="lightbox.js"
               extra="lyin"
             />
             <MarkdownShow
               className={styles['md-project']}
-              mdString={md}
+              mdString={lightbox}
             />
           </div>
           <div className={styles['project-item']}>
             <PanelTitle
-              title="返回顶部"
-              desc="top.js"
+              title="随意定位导航栏"
+              desc="fixnav.js"
               extra="lyin"
             />
             <MarkdownShow
               className={styles['md-project']}
-              mdString={md}
+              mdString={fixnav}
             />
           </div>
         </Content>

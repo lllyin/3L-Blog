@@ -11,7 +11,7 @@ const PanelTitle = ({ title, desc, extra }) => (
       </h3>
     </div>
     <div className="author">
-      by<a href="http://weibo.com/u/2811978982">{extra}</a>
+      by<a href="http://weibo.com/u/2811978982" className="name">{extra}</a>
     </div>
   </div>
 );
