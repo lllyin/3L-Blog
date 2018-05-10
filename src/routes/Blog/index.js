@@ -14,6 +14,7 @@ export default class Blog extends Component {
           <Abstract />
           <Abstract />
           <Abstract />
+          
         </Content>
       </section>
     );
