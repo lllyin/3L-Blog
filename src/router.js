@@ -5,6 +5,7 @@ import Resume from './routes/Resume';
 import Contact from './routes/Contact';
 import Project from './routes/Project';
 import Blog from './routes/Blog';
+import BlogDetail from './routes/Blog/BlogDetail';
 import BasicLayout from './layouts/BasicLayout';
 import MyLife from './routes/MyLife';
 import Developing from './routes/Developing';
@@ -18,6 +19,7 @@ function RouterConfig({ history }) {
         <Route path="/resume" exact component={Resume} />
         <Route path="/project" exact component={Project} />
         <Route path="/blog" exact component={Blog} />
+        <Route path="/blog/detail" exact component={BlogDetail} />
         <Route path="/my-life" exact component={MyLife} />
         <Route path="/contact" exact component={Contact} />
         <Route path="/test" render={(props) => { return (<BasicLayout {...props} />); }} />

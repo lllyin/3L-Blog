@@ -21,14 +21,14 @@ export default class Abstract extends Component {
           文章摘要摘要炸药
           文章摘要摘要炸药
           <p>
-          文章摘要摘要炸药
-          文章摘要摘要炸药
-          文章摘要摘要炸药
-          文章摘要摘要炸药
+            文章摘要摘要炸药
+            文章摘要摘要炸药
+            文章摘要摘要炸药
+            文章摘要摘要炸药
           </p>
         </div>
         <p className="more">
-          <a className="read-more" href="#/blog">
+          <a className="read-more" href="#/blog/detail">
             Read more
           </a>
         </p>
