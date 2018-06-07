@@ -7,7 +7,7 @@ export default class Abstract extends Component {
     return (
       <div className={styles['article-excerpt']}>
         <h2 className="article-title">
-          <a>文章标题文章标题</a>
+          <a href="#/blog/detail">文章标题文章标题</a>
         </h2>
         <div className="article-info">
           <span><a href="#">聆逸</a></span>
