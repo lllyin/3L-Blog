@@ -8,4 +8,13 @@ html, body, :global(#root) {
   -webkit-font-smoothing:antialiased;
 }
 
+blockquote{
+  font-size: 1.2rem;
+}
+p{
+  font-size: 1.15rem;
+  font-weight: 400;
+  line-height: 1.7;
+  color: #2f2f2f;
+}
 

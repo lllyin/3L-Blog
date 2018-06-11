@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'dva';
 import { ResponsiveHeader } from '../../components/Header';
-import { Abstract } from '../../components/Article';
+import Abstract  from '../../components/Article/Abstract';
 import { Content } from '../../components/Layout';
 
 @connect(({ article }) => ({
