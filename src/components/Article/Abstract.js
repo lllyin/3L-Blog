@@ -9,7 +9,7 @@ export default class Abstract extends PureComponent {
     return (
       <div className={styles['article-excerpt']}>
         <h2 className="article-title">
-          <a href="#/blog/detail">{data.title}</a>
+          <a href={`#/blog/detail?id=${data._id}`}>{data.title}</a>
         </h2>
         <div className="article-info">
           <span><a href="#">{data.author}</a></span>
