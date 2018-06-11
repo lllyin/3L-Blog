@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
-import {connect} from 'dva';
 import { ResponsiveHeader } from '../../components/Header';
 import { Content } from '../../components/Layout';
 
-@connect(({example})=>({
-  example
-}))
+
 export default class Home extends Component {
   render() {
     return (

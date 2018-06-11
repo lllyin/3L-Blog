@@ -16,6 +16,7 @@
     "moment": "^2.22.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
+    "react-markdown": "^3.3.2",
     "remarkable": "^1.7.1"
   },
   "devDependencies": {

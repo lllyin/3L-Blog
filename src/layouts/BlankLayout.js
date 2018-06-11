@@ -6,7 +6,7 @@ import { getRoutes } from '../utils/utils';
 export default class BasicLayout extends Component {
   render() {
     const { match, routerData } = this.props;
-    console.log('BlankLayout', this.props)
+    // console.log('BlankLayout', this.props)
     return (
       <div>
         <Switch>

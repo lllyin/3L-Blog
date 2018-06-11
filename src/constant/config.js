@@ -1,5 +1,8 @@
 export const API_URL = 'http://localhost:9600/api/blog';
 
+// 文字裁剪字符长度
+export const MAX_CHAR_LENGTH = 200;
+
 // 接口请求状态码
 export const SUCCESS_STATUS = 200; // 操作成功
 export const FAIL_STATUS = 10001; // 操作失败
