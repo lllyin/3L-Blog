@@ -4,8 +4,8 @@ import { Badge } from '../../components/Badge';
 import styles from './ResponsiveHeader.less';
 import expandArrow from './expand-arrow.svg';
 
-@withRouter
-export default class ResponsiveHeader extends Component {
+
+class ResponsiveHeader extends Component {
   state = {
     isOpen: false,
   }
@@ -55,3 +55,6 @@ export default class ResponsiveHeader extends Component {
     );
   }
 }
+
+const ResponsiveHeader2 = withRouter(ResponsiveHeader);
+export default ResponsiveHeader2;

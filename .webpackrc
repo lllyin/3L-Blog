@@ -1,7 +1,6 @@
 {
   "entry": "src/index.js",
   "extraBabelPlugins": [
-    "transform-decorators-legacy"
   ],
   "env": {
     "development": {

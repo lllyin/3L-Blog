@@ -3,6 +3,7 @@ import { ResponsiveHeader } from '../../components/Header';
 import { Abstract } from '../../components/Article';
 import { Content } from '../../components/Layout';
 
+
 export default class Blog extends Component {
   render() {
     return (
@@ -14,7 +15,7 @@ export default class Blog extends Component {
           <Abstract />
           <Abstract />
           <Abstract />
-          
+
         </Content>
       </section>
     );

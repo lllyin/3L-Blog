@@ -4,22 +4,22 @@
     "start": "roadhog server",
     "build": "roadhog build",
     "lint": "eslint --ext .js src test",
-    "precommit": "npm run lint",
-    "close-lint": "ESLINT=none roadhog dev"
+    "precommit": "npm run lint"
   },
   "dependencies": {
-    "dva": "^2.1.0",
+    "axios": "^0.18.0",
+    "dva": "^2.3.0",
     "highlight": "^0.2.4",
     "highlight.js": "^9.12.0",
     "material-ui": "^1.0.0-beta.38",
     "material-ui-icons": "^1.0.0-beta.36",
+    "moment": "^2.22.2",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "remarkable": "^1.7.1"
   },
   "devDependencies": {
     "babel-plugin-dva-hmr": "^0.3.2",
-    "babel-plugin-transform-decorators-legacy": "^1.3.4",
     "eslint": "^4.14.0",
     "eslint-config-airbnb": "^16.1.0",
     "eslint-config-umi": "^0.1.1",

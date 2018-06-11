@@ -1,14 +1,15 @@
 import React, { Component } from 'react';
+import {connect} from 'dva';
 import { ResponsiveHeader } from '../../components/Header';
-// import BasicLayout from '../../layouts/BasicLayout';
 import { Content } from '../../components/Layout';
 
-
+@connect(({example})=>({
+  example
+}))
 export default class Home extends Component {
   render() {
     return (
       <section>
-        {/* <BasicLayout /> */}
         <ResponsiveHeader />
         <Content className="home-box" style={{ marginTop: 30 }}>
           <h1> Home Page </h1>
