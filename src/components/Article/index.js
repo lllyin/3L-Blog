@@ -29,7 +29,7 @@ export default class Article extends PureComponent {
           />
         </div>
         <p className="more">
-          <a className="read-more" onClick={() => { this.props.history.goBack() }}>
+          <a className="read-more" onClick={() => { this.props.history.goBack(); }}>
             返回
           </a>
         </p>
