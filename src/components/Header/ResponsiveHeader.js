@@ -48,7 +48,7 @@ class ResponsiveHeader extends Component {
               <Badge count="99" />
             </a>
             <a href="#/login" className={`login-btn link ${path === '/login' ? 'active' : ''}`}>LOGIN</a>
-            <a href="//liaolunling.top" target="_blank" className={`join-btn link ${path === '/join' ? 'active' : ''}`}>旧版网站</a>
+            <a href="//www.liaolunling.top" target="_blank" className={`join-btn link ${path === '/join' ? 'active' : ''}`}>旧版网站</a>
           </div>
         </aside>
       </header>
