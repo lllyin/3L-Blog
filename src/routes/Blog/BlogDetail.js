@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import qs from 'qs';
 import { connect } from 'dva';
+import {Button} from 'antd';
 import { ResponsiveHeader } from '../../components/Header';
 import Article from '../../components/Article';
 import { Content } from '../../components/Layout';
 
-@connect(({ article }) => ({
-  article
+@connect(({ article,loading }) => ({
+  article,
+  loading
 }))
 export default class BlogDetail extends Component {
   constructor(props) {
@@ -29,11 +31,15 @@ export default class BlogDetail extends Component {
   }
 
   render() {
-    const { article } = this.props;
+    const { article,loading } = this.props;
     return (
       <section>
         <ResponsiveHeader />
-        <Content className="home-box" style={{ marginTop: 30 }}>
+        <Content 
+          className="home-box" 
+          style={{ marginTop: 30 }}
+          loading={loading.models.article}
+        >
           <h1> Blog detail </h1>
           <Article data={article.detail} {...this.props} />
         </Content>

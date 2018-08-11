@@ -4,8 +4,9 @@ import { ResponsiveHeader } from '../../components/Header';
 import Abstract  from '../../components/Article/Abstract';
 import { Content } from '../../components/Layout';
 
-@connect(({ article }) => ({
-  article
+@connect(({ article,loading }) => ({
+  article,
+  loading
 }))
 export default class Blog extends Component {
 
@@ -17,12 +18,16 @@ export default class Blog extends Component {
   }
 
   render() {
-    const { article } = this.props;
+    const { article,loading } = this.props;
     console.log(this.props);
     return (
       <section>
         <ResponsiveHeader />
-        <Content className="home-box" style={{ marginTop: 30 }}>
+        <Content 
+          className="home-box" 
+          style={{ marginTop: 30 }}
+          loading={loading.models.article}  
+        >
           <h1> Blog Page </h1>
           {
             article.list.map(articleItem => <Abstract key={articleItem._id} data={articleItem} />)
