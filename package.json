@@ -7,8 +7,10 @@
     "precommit": "npm run lint"
   },
   "dependencies": {
+    "@babel/polyfill": "^7.0.0-rc.1",
     "axios": "^0.18.0",
     "dva": "^2.3.0",
+    "dva-loading": "^2.0.5",
     "highlight": "^0.2.4",
     "highlight.js": "^9.12.0",
     "material-ui": "^1.0.0-beta.38",
@@ -18,7 +20,8 @@
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-markdown": "^3.3.2",
-    "remarkable": "^1.7.1"
+    "remarkable": "^1.7.1",
+    "url-polyfill": "^1.0.14"
   },
   "devDependencies": {
     "babel-plugin-dva-hmr": "^0.3.2",
