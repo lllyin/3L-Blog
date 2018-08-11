@@ -1,9 +1,20 @@
 import React, { Component } from 'react';
+import pathToRegexp from 'path-to-regexp';
 import { withRouter } from 'dva/router';
 import { Badge } from '../../components/Badge';
 import styles from './ResponsiveHeader.less';
 import expandArrow from './expand-arrow.svg';
+import Blog from '../../routes/Blog';
 
+/**
+ * 匹配路径
+ * @param regStr {string}  匹配字符串
+ * @param path {string} 要被匹配的路径
+ * @returns {Boolean} 返回一个布尔值
+ */
+function isRightPath(regStr, path) {
+  return pathToRegexp(`/${regStr}(.*)`).test(path);
+}
 
 class ResponsiveHeader extends Component {
   state = {
@@ -17,8 +28,7 @@ class ResponsiveHeader extends Component {
 
   render() {
     const { isOpen } = this.state;
-    const { match: { path } } = this.props;
-    console.log(this.props, path);
+    const { match: { path, url } } = this.props;
     return (
       <header className={styles.header}>
         <aside className="nav-upper">
@@ -35,12 +45,12 @@ class ResponsiveHeader extends Component {
         </aside>
         <aside className={`nav-lower ${isOpen ? 'open' : ''}`}>
           <div className="nav left">
-            <a href="#/home" className={`link ${path === '/home' ? 'active' : ''}`}>HOME</a>
-            <a href="#/resume" className={`link ${path === '/resume' ? 'active' : ''}`}>RESUME</a>
-            <a href="#/project" className={`link ${path === '/project' ? 'active' : ''}`}>PROJECT</a>
-            <a href="#/blog" className={`link ${path === '/blog' ? 'active' : ''}`} >BLOG</a>
-            <a href="#/my-life" className={`link ${path === '/my-life' ? 'active' : ''}`}>MY LIFE</a>
-            <a href="#/contact" className={`link ${path === '/contact' ? 'active' : ''}`}>CONTACT</a>
+            <a href="#/home" className={`link ${isRightPath('home', url) ? 'active' : ''}`}>HOME</a>
+            <a href="#/resume" className={`link ${isRightPath('resume', url) ? 'active' : ''}`}>RESUME</a>
+            <a href="#/project" className={`link ${isRightPath('project', url) ? 'active' : ''}`}>PROJECT</a>
+            <a href="#/blog" className={`link ${isRightPath('blog', url) ? 'active' : ''}`} >BLOG</a>
+            <a href="#/my-life" className={`link ${isRightPath('my-life', url) ? 'active' : ''}`}>MY LIFE</a>
+            <a href="#/contact" className={`link ${isRightPath('contact', url) ? 'active' : ''}`}>CONTACT</a>
           </div>
           <div className="nav right">
             <a href="#/chat" className={`chat-btn link ${path === '/chat' ? 'active' : ''}`}>
