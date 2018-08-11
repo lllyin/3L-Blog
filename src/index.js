@@ -1,6 +1,5 @@
 import dva from 'dva';
 import createLoading from 'dva-loading';
-import './polyfill';
 import './index.css';
 import 'rc-texty/assets/index.css';
 
