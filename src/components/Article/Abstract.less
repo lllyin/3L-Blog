@@ -1,17 +1,17 @@
 .article-excerpt{
-  margin-bottom: 1.5rem;
+  // margin-bottom: 1rem;
+  padding: 1rem 0 .8rem 0;
   @media (max-width: 992px){
-  margin: 2rem 0;
-  border-bottom: 1px solid #eee;
-  padding-bottom: 1rem;
+    margin: 2rem 0;
+    border-bottom: 1px solid #eee;
+    padding: 1rem 0;
   }
   :global{
     .article-title{
       color: #010101;
       cursor: pointer;
-      margin: 6px 0;
       font-weight: 400;
-      margin: 2rem 0;
+      margin-bottom: 1rem;
       a{
         color: #010101;
         font-size: 1.8rem;
@@ -22,7 +22,7 @@
       }
     }
     .article-info{
-      margin-bottom: 1.5rem;
+      margin-bottom: 1rem;
       font-size: 0.9rem;
       >span{
         display: inline-block;
@@ -38,11 +38,20 @@
     }
     .more{
       font-size: 12px;
-      margin: 1rem 0;
+      margin-top: 0.5rem;
+      margin-bottom: 1rem;
       .read-more{
         color: rgb(0, 0, 0);
         text-transform: uppercase;
         cursor: pointer;
+        transition: all 0.25s ease;
+        display: inline-block;
+        padding: 2px 3px;
+      }
+      .read-more:hover{
+        background-color: rgba(0,0,0,.8);
+        color: #fff;
+        padding: 2px 7px;
       }
     }
   }

@@ -4,7 +4,7 @@ import QueueAnim from 'rc-queue-anim';
 import { ResponsiveHeader } from '../../components/Header';
 import Abstract from '../../components/Article/Abstract';
 import { Content } from '../../components/Layout';
-
+import styles from './blog.less';
 
 @connect(({ article, loading }) => ({
   article,
@@ -21,7 +21,6 @@ export default class Blog extends Component {
 
   render() {
     const { article, loading } = this.props;
-    console.log(this.props);
     return (
       <section>
         <ResponsiveHeader />
@@ -39,7 +38,7 @@ export default class Blog extends Component {
             leaveReverse={true}
           >
             {
-              article.list.map(articleItem => <Abstract key={articleItem._id} data={articleItem} />)
+              article.list.map(articleItem => <Abstract className={styles['article-item']} key={articleItem._id} data={articleItem} />)
             }
           </QueueAnim>
 
