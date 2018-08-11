@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import moment from 'moment';
 import ReactMarkdown from 'react-markdown';
 import CodeBlock from './CodeBlock';
