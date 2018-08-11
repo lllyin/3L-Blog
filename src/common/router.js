@@ -80,18 +80,22 @@ export const getRouterData = app => {
     },
     '/project': {
       component: dynamicWrapper(app, ['example'], () => import('../routes/Project')),
+      name:"个人项目"
     },
     '/blog': {
       component: dynamicWrapper(app, ['article'], () => import('../routes/Blog')),
+      name:"博客"
     },
     '/:blog/detail': {
       component: dynamicWrapper(app, ['article'], () => import('../routes/Blog/BlogDetail')),
     },
     '/my-life': {
       component: dynamicWrapper(app, ['example'], () => import('../routes/MyLife')),
+      name:"我的生活"
     },
     '/contact': {
       component: dynamicWrapper(app, ['example'], () => import('../routes/Contact')),
+      name:"联系方式"
     },
     // '/user/:id': {
     //   component: dynamicWrapper(app, [], () => import('../routes/User/SomeComponent')),

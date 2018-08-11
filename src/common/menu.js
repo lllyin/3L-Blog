@@ -1,14 +1,13 @@
 import { isUrl } from '../utils/utils';
 
-const menuData = [
-  {
-    name: 'dashboard',
+const menuData = [{
+    name: '首页',
     icon: 'dashboard',
-    path: 'dashboard',
-    children: [{
-        name: '分析页',
-        path: 'analysis',
-      }],
+    path: 'home',
+  },{
+    name: '简历',
+    icon: 'resume',
+    path: 'resume',
   },
 ];
 
