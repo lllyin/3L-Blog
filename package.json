@@ -18,6 +18,8 @@
     "material-ui-icons": "^1.0.0-beta.36",
     "moment": "^2.22.2",
     "qs": "^6.5.2",
+    "rc-queue-anim": "^1.6.5",
+    "rc-texty": "^0.1.1",
     "react": "^16.2.0",
     "react-dom": "^16.2.0",
     "react-markdown": "^3.3.2",

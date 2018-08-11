@@ -6,14 +6,13 @@ import { RESUME_MD_TEXT } from './resume.md';
 
 import styles from './index.less';
 
-
 export default class Resume extends Component {
   render() {
     return (
       <section>
         <ResponsiveHeader />
         <Content className="home-box" style={{ marginTop: 30 }}>
-          <h1> Resume Page </h1>
+          <h1>Resume Page</h1>
           <div className={styles['project-item']}>
             <MarkdownShow
               className={styles['md-project']}

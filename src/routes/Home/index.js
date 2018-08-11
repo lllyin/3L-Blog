@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
+import Texty from 'rc-texty';
 import { ResponsiveHeader } from '../../components/Header';
 import { Content } from '../../components/Layout';
-
 
 export default class Home extends Component {
   render() {
@@ -9,8 +9,8 @@ export default class Home extends Component {
       <section>
         <ResponsiveHeader />
         <Content className="home-box" style={{ marginTop: 30 }}>
-          <h1> Home Page </h1>
-          home page content
+          <h1> <Texty type="top" mode="random">Home Page </Texty></h1>
+          <Texty type="left">home page content,developing...</Texty>
         </Content>
       </section>
     );
