@@ -8,6 +8,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0-rc.1",
+    "antd": "^3.8.0",
     "axios": "^0.18.0",
     "dva": "^2.3.0",
     "dva-loading": "^2.0.5",
@@ -24,7 +25,8 @@
     "url-polyfill": "^1.0.14"
   },
   "devDependencies": {
-    "babel-plugin-dva-hmr": "^0.3.2",
+    "babel-plugin-dva-hmr": "^0.4.1",
+    "babel-plugin-import": "^1.8.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
     "eslint": "^4.14.0",
     "eslint-config-airbnb": "^16.1.0",
