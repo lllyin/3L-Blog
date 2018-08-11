@@ -1,14 +1,18 @@
 {
   "entry": "src/index.js",
-  "extraBabelPlugins": [
-  ],
   "env": {
     "development": {
       "extraBabelPlugins": [
         "dva-hmr"
       ]
+    },
+    "production": {
+      "extraBabelPlugins": [
+        "transform-remove-console"
+      ]
     }
   },
+
   "publicPath": "/",
   "html": {
     "template": "./src/index.ejs"
