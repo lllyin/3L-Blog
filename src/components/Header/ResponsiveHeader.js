@@ -28,7 +28,7 @@ class ResponsiveHeader extends Component {
 
   render() {
     const { isOpen } = this.state;
-    const { match: { path, url } } = this.props;
+    const { location: { pathname } } = this.props;
     return (
       <header className={styles.header}>
         <aside className="nav-upper">
@@ -45,20 +45,20 @@ class ResponsiveHeader extends Component {
         </aside>
         <aside className={`nav-lower ${isOpen ? 'open' : ''}`}>
           <div className="nav left">
-            <a href="#/home" className={`link ${isRightPath('home', url) ? 'active' : ''}`}>HOME</a>
-            <a href="#/resume" className={`link ${isRightPath('resume', url) ? 'active' : ''}`}>RESUME</a>
-            <a href="#/project" className={`link ${isRightPath('project', url) ? 'active' : ''}`}>PROJECT</a>
-            <a href="#/blog" className={`link ${isRightPath('blog', url) ? 'active' : ''}`} >BLOG</a>
-            <a href="#/my-life" className={`link ${isRightPath('my-life', url) ? 'active' : ''}`}>MY LIFE</a>
-            <a href="#/contact" className={`link ${isRightPath('contact', url) ? 'active' : ''}`}>CONTACT</a>
+            <a href="#/home" className={`link ${isRightPath('home', pathname) ? 'active' : ''}`}>HOME</a>
+            <a href="#/resume" className={`link ${isRightPath('resume', pathname) ? 'active' : ''}`}>RESUME</a>
+            <a href="#/project" className={`link ${isRightPath('project', pathname) ? 'active' : ''}`}>PROJECT</a>
+            <a href="#/blog" className={`link ${isRightPath('blog', pathname) ? 'active' : ''}`} >BLOG</a>
+            <a href="#/my-life" className={`link ${isRightPath('my-life', pathname) ? 'active' : ''}`}>MY LIFE</a>
+            <a href="#/contact" className={`link ${isRightPath('contact', pathname) ? 'active' : ''}`}>CONTACT</a>
           </div>
           <div className="nav right">
-            <a href="#/chat" className={`chat-btn link ${path === '/chat' ? 'active' : ''}`}>
+            <a href="#/chat" className={`chat-btn link ${isRightPath('chat', pathname) ? 'active' : ''}`}>
               CHAT
               <Badge count="99" />
             </a>
-            <a href="#/login" className={`login-btn link ${path === '/login' ? 'active' : ''}`}>LOGIN</a>
-            <a href="//www.liaolunling.top" target="_blank" className={`join-btn link ${path === '/join' ? 'active' : ''}`}>旧版网站</a>
+            <a href="#/login" className={`login-btn link ${isRightPath('login', pathname) ? 'active' : ''}`}>LOGIN</a>
+            <a href="//www.liaolunling.top" target="_blank" className={`join-btn link ${isRightPath('join', pathname) ? 'active' : ''}`}>旧版网站</a>
           </div>
         </aside>
       </header>
