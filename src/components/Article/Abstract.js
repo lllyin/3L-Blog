@@ -1,4 +1,4 @@
-import React, { Component, PureComponent } from 'react';
+import React, { PureComponent } from 'react';
 import moment from 'moment';
 import { MAX_CHAR_LENGTH } from '../../constant/config';
 import styles from './Abstract.less';
