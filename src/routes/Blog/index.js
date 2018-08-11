@@ -32,6 +32,7 @@ export default class Blog extends Component {
           <h1>Blog Page</h1>
           <QueueAnim
             className="queue-simple"
+            type="left"
             delay={300}
             duration={500}
             appear={true}

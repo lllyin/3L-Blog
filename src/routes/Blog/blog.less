@@ -1,7 +1,6 @@
 @duration:.35s;
 @borderColor:#333;
 @borderColor2:#333;
-
 .article-item{
   position: relative;
   transition: all .2s ease;
@@ -26,8 +25,10 @@
     background-color: @borderColor;
     transition: all @duration linear;
   }
-  &:hover::before,&:hover::after{
-    width: 100%;
-    background-color: @borderColor2;
-  }
+  @media screen and (min-width:992){
+    &:hover::before,&:hover::after{
+      width: 100%;
+      background-color: @borderColor2;
+    }
+  } 
 }
