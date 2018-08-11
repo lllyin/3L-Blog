@@ -1,7 +1,7 @@
 import dva from 'dva';
+import 'rc-texty/assets/index.css';
 import createLoading from 'dva-loading';
 import './index.css';
-import 'rc-texty/assets/index.css';
 
 // 1. Initialize
 const app = dva();

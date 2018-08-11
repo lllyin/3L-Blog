@@ -28,7 +28,7 @@ export default class Blog extends Component {
           className="home-box"
           style={{ marginTop: 30 }}
           loading={loading.models.article}
-        > 
+        >
           <h1>Blog Page</h1>
           <QueueAnim
             className="queue-simple"
@@ -41,7 +41,6 @@ export default class Blog extends Component {
               article.list.map(articleItem => <Abstract className={styles['article-item']} key={articleItem._id} data={articleItem} />)
             }
           </QueueAnim>
-
         </Content>
       </section>
     );

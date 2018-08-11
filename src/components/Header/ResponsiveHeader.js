@@ -4,7 +4,6 @@ import { withRouter } from 'dva/router';
 import { Badge } from '../../components/Badge';
 import styles from './ResponsiveHeader.less';
 import expandArrow from './expand-arrow.svg';
-import Blog from '../../routes/Blog';
 
 /**
  * 匹配路径
