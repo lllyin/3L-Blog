@@ -5,6 +5,7 @@ import {Button} from 'antd';
 import { ResponsiveHeader } from '../../components/Header';
 import Article from '../../components/Article';
 import { Content } from '../../components/Layout';
+import styles from './blogDetail.less';
 
 @connect(({ article,loading }) => ({
   article,
@@ -36,11 +37,10 @@ export default class BlogDetail extends Component {
       <section>
         <ResponsiveHeader />
         <Content 
-          className="home-box" 
+          className={`home-box ${styles['blog-detail']}`} 
           style={{ marginTop: 30 }}
           loading={loading.models.article}
         >
-          <h1> Blog detail </h1>
           <Article data={article.detail} {...this.props} />
         </Content>
       </section>

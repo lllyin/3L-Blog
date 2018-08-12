@@ -6,9 +6,9 @@ import TableRender from './TableRender';
 import styles from './Abstract.less';
 
 export default class Article extends PureComponent {
-  
+
   render() {
-    const { data, history } = this.props;
+    const { data } = this.props;
     document.title = `${data.title} - 3L先生`;  //修改网页标题
     return (
       <div className={styles['article-excerpt']}>
@@ -24,7 +24,7 @@ export default class Article extends PureComponent {
             {`(${moment(data.create_time * 1000).fromNow()})`}
           </span>
         </div>
-        <div className="article-abstract">
+        <div className="article-abstract" style={{ marginTop: '2.6rem' }}>
           <ReactMarkdown
             source={data.content}
             renderers={{ code: CodeBlock, table: TableRender }}

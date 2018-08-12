@@ -1,11 +1,16 @@
-
 html, body, :global(#root) {
   height: 100%;
   margin: 0;
   font-size: 14px;
   font-family: -apple-system, BlinkMacSystemFont, "Helvetica Neue", "PingFang SC", "Microsoft YaHei", "Source Han Sans SC", "Noto Sans CJK SC", "WenQuanYi Micro Hei", sans-serif;
-  text-rendering: optimizeLegibility;
+}
+html{
+  -webkit-tap-highlight-color: transparent;
+}
+body{
   -webkit-font-smoothing:antialiased;
+  text-rendering: optimizeLegibility;
+  color: #333;
 }
 
 blockquote{
