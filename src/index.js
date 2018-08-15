@@ -1,5 +1,6 @@
 import dva from 'dva';
 import 'rc-texty/assets/index.css';
+import 'moment/locale/zh-cn';
 import createLoading from 'dva-loading';
 import './index.css';
 

@@ -3,8 +3,6 @@ import moment from 'moment';
 import { MAX_CHAR_LENGTH } from '../../constant/config';
 import styles from './Abstract.less';
 
-moment.locale('zh-cn');
-
 export default class Abstract extends PureComponent {
   render() {
     const { data,className } = this.props;
