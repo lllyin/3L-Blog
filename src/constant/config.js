@@ -1,4 +1,4 @@
-export const API_URL = '//testapi.liaolunling.top/api/blog';
+export const API_URL = 'https://testapi.liaolunling.top/api/blog';
 
 // 文字裁剪字符长度
 export const MAX_CHAR_LENGTH = 200;
