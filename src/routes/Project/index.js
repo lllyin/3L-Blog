@@ -19,8 +19,8 @@ export default class Project extends Component {
             className="queue-simple"
             delay={300}
             duration={500}
-            appear={true}
-            leaveReverse={true}
+            appear
+            leaveReverse
           >
             <div className={styles['project-item']}>
               <PanelTitle

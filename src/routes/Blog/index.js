@@ -8,15 +8,14 @@ import styles from './blog.less';
 
 @connect(({ article, loading }) => ({
   article,
-  loading
+  loading,
 }))
 export default class Blog extends Component {
-
   componentDidMount() {
     const { dispatch } = this.props;
     dispatch({
       type: 'article/fetch',
-    })
+    });
   }
 
   render() {
@@ -35,8 +34,8 @@ export default class Blog extends Component {
             type="left"
             delay={300}
             duration={500}
-            appear={true}
-            leaveReverse={true}
+            appear
+            leaveReverse
           >
             {
               article.list.map(articleItem => <Abstract className={styles['article-item']} key={articleItem._id} data={articleItem} />)

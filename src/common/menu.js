@@ -4,7 +4,7 @@ const menuData = [{
     name: '首页',
     icon: 'dashboard',
     path: 'home',
-  },{
+  }, {
     name: '简历',
     icon: 'resume',
     path: 'resume',
@@ -12,7 +12,7 @@ const menuData = [{
 ];
 
 function formatter(data, parentPath = '/', parentAuthority) {
-  return data.map(item => {
+  return data.map((item) => {
     let { path } = item;
     if (!isUrl(path)) {
       path = parentPath + item.path;

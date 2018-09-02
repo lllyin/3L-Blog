@@ -39,13 +39,13 @@ export default {
       return {
         ...state,
         list: aciton.payload,
-      }
+      };
     },
     saveDetail(state, aciton) {
       return {
         ...state,
         detail: aciton.payload,
-      }
+      };
     },
   },
-}
+};

@@ -23,7 +23,7 @@ function checkStatus(response) {
     return response;
   }
   const errortext = codeMessage[response.status] || response.statusText;
-  console.log('请求错误')
+  console.log('请求错误');
   const error = new Error(errortext);
   error.name = response.status;
   error.response = response;

@@ -1,1 +1,6 @@
-{}
+{
+  "rules": {
+    "no-underscore-dangle":"warn",
+    "no-mixed-operators":"warn"
+  }
+}

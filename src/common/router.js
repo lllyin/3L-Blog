@@ -7,7 +7,7 @@ let routerDataCache;
 
 function getFlatMenuData(menus) {
   let keys = {};
-  menus.forEach(item => {
+  menus.forEach((item) => {
     if (item.children) {
       keys[item.path] = { ...item };
       keys = { ...keys, ...getFlatMenuData(item.children) };
@@ -28,13 +28,13 @@ const dynamicWrapper = (app, models, component) => {
   // () => require('module')
   // transformed by babel-plugin-dynamic-import-node-sync
   if (component.toString().indexOf('.then(') < 0) {
-    models.forEach(model => {
+    models.forEach((model) => {
       if (modelNotExisted(app, model)) {
         // eslint-disable-next-line
         app.model(require(`../models/${model}`).default);
       }
     });
-    return props => {
+    return (props) => {
       if (!routerDataCache) {
         routerDataCache = getRouterData(app);
       }
@@ -54,7 +54,7 @@ const dynamicWrapper = (app, models, component) => {
       if (!routerDataCache) {
         routerDataCache = getRouterData(app);
       }
-      return component().then(raw => {
+      return component().then((raw) => {
         const Component = raw.default || raw;
         return props =>
           createElement(Component, {
@@ -67,7 +67,7 @@ const dynamicWrapper = (app, models, component) => {
 };
 
 
-export const getRouterData = app => {
+export const getRouterData = (app) => {
   const routerConfig = {
     '/': {
       component: dynamicWrapper(app, [], () => import('../layouts/BlankLayout')),
@@ -80,22 +80,22 @@ export const getRouterData = app => {
     },
     '/project': {
       component: dynamicWrapper(app, ['example'], () => import('../routes/Project')),
-      name:"个人项目"
+      name: '个人项目',
     },
     '/blog': {
       component: dynamicWrapper(app, ['article'], () => import('../routes/Blog')),
-      name:"博客"
+      name: '博客',
     },
     '/:blog/detail': {
       component: dynamicWrapper(app, ['article'], () => import('../routes/Blog/BlogDetail')),
     },
     '/my-life': {
       component: dynamicWrapper(app, ['example'], () => import('../routes/MyLife')),
-      name:"我的生活"
+      name: '我的生活',
     },
     '/contact': {
       component: dynamicWrapper(app, ['example'], () => import('../routes/Contact')),
-      name:"联系方式"
+      name: '联系方式',
     },
     // '/user/:id': {
     //   component: dynamicWrapper(app, [], () => import('../routes/User/SomeComponent')),
@@ -108,7 +108,7 @@ export const getRouterData = app => {
   // eg. {name,authority ...routerConfig }
   const routerData = {};
   // The route matches the menu
-  Object.keys(routerConfig).forEach(path => {
+  Object.keys(routerConfig).forEach((path) => {
     // Regular match item name
     // eg.  router /user/:id === /user/chen
     const pathRegexp = pathToRegexp(path);
