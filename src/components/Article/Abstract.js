@@ -5,9 +5,9 @@ import styles from './Abstract.less';
 
 export default class Abstract extends PureComponent {
   render() {
-    const { data,className } = this.props;
+    const { data, className } = this.props;
     return (
-      <div className={styles['article-excerpt'] + ' '+ className}>
+      <div className={styles['article-excerpt'] + ' ' + className}>
         <h2 className="article-title">
           <a href={`#/blog/detail?id=${data._id}`}>{data.title}</a>
         </h2>
