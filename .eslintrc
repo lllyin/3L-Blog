@@ -1,6 +1,12 @@
 {
   "rules": {
-    "no-underscore-dangle":"warn",
-    "no-mixed-operators":"warn"
+    "no-underscore-dangle": "warn",
+    "no-mixed-operators": "warn",
+    "no-unused-expressions": [
+      "error",
+      {
+        "allowShortCircuit": true
+      }
+    ]
   }
 }

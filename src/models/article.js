@@ -1,6 +1,5 @@
-import { queryArticleDetail, queryArticles } from '../services/article';
+import { queryArticleDetail, queryArticles, postComment, likeComment } from '../services/article';
 import { SUCCESS_STATUS } from '../constant/config';
-
 
 export default {
   namespace: 'article',
@@ -16,7 +15,9 @@ export default {
       const response = yield call(queryArticles);
       if (response.status >> 0 === SUCCESS_STATUS) {
         if (typeof success === 'function') success(response);
-      } else if (typeof error === 'function') { error(response); }
+      } else if (typeof error === 'function') {
+        error(response);
+      }
       yield put({
         type: 'save',
         payload: response.data,
@@ -26,9 +27,23 @@ export default {
       const response = yield call(queryArticleDetail, { articleId });
       if (response.status >> 0 === SUCCESS_STATUS) {
         if (typeof success === 'function') success(response);
-      } else if (typeof error === 'function') { error(response); }
+      } else if (typeof error === 'function') {
+        error(response);
+      }
       yield put({
         type: 'saveDetail',
+        payload: response.data,
+      });
+    },
+    *addComment({ postId, data, success, error }, { call, put }) {
+      const response = yield call(postComment, { postId, data });
+      if (response.status >> 0 === SUCCESS_STATUS) {
+        if (typeof success === 'function') success(response);
+      } else if (typeof error === 'function') {
+        error(response);
+      }
+      yield put({
+        type: 'saveComment',
         payload: response.data,
       });
     },
@@ -45,6 +60,12 @@ export default {
       return {
         ...state,
         detail: aciton.payload,
+      };
+    },
+    saveComment(state, action) {
+      return {
+        ...state,
+        detail: action.payload,
       };
     },
   },
