@@ -6414,9 +6414,9 @@ mkdirp@0.5.1, mkdirp@0.5.x, mkdirp@^0.5.0, mkdirp@^0.5.1, mkdirp@~0.5.0, mkdirp@
   dependencies:
     minimist "0.0.8"
 
-moment-ago@^1.0.0:
-  version "1.0.0"
-  resolved "https://registry.npmjs.org/moment-ago/-/moment-ago-1.0.0.tgz#867895ec8f09843d162fd5952acebf1dc9e6bca6"
+moment-ago@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.npmjs.org/moment-ago/-/moment-ago-1.2.0.tgz#5411a91821c748bcace4bfb5a34c105d7631dcdb"
   dependencies:
     dayjs "^1.7.7"
 
