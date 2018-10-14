@@ -15,9 +15,17 @@ export default class Article extends PureComponent {
           <a href={`#/blog/detail?id=${data._id}`}>{data.title}</a>
         </h2>
         <div className="article-info">
-          <span><a href="#">{data.author}</a></span>
-          <span>{data.views}浏览</span>
-          <span>{data.comments && data.comments.length}评论</span>
+          <span>
+            <a href="#">{data.author}</a>
+          </span>
+          <span>
+            {data.views}
+            浏览
+          </span>
+          <span>
+            {data.comments && data.comments.length}
+            评论
+          </span>
           <span>
             {moment(data.create_time * 1000).format('YYYY-MM-DD HH:mm')}
             {`(${moment(data.create_time * 1000).fromNow()})`}
@@ -25,12 +33,18 @@ export default class Article extends PureComponent {
         </div>
         <div className="article-abstract" style={{ marginTop: '2.6rem' }}>
           <ReactMarkdown
+            className="code-box"
             source={data.content}
             renderers={{ code: CodeBlock, table: TableRender }}
           />
         </div>
         <p className="more">
-          <a className="read-more" onClick={() => { this.props.history.goBack(); }}>
+          <a
+            className="read-more"
+            onClick={() => {
+              this.props.history.goBack();
+            }}
+          >
             返回
           </a>
         </p>

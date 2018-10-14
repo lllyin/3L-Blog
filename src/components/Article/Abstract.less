@@ -1,10 +1,16 @@
 .article-excerpt {
   // margin-bottom: 1rem;
-  padding: 1rem 0 .8rem 0;
+  padding: 1rem 0 0.8rem 0;
   @media (max-width: 992px) {
     margin: 2rem 0;
     border-bottom: 1px solid #eee;
     padding: 1rem 0;
+    :global {
+      .code-box {
+        margin-left: -15px;
+        margin-right: -15px;
+      }
+    }
   }
   :global {
     .article-title {
@@ -12,9 +18,10 @@
       cursor: pointer;
       font-weight: 400;
       margin-bottom: 1rem;
+      font-size: 1.5rem;
       a {
         color: #010101;
-        font-size: 1.8rem;
+        font-size: inherit;
         margin-top: 20px;
         margin-bottom: 0px;
         text-align: left;
@@ -24,7 +31,7 @@
     .article-info {
       margin-bottom: 1rem;
       font-size: 0.9rem;
-      >span {
+      > span {
         display: inline-block;
         margin-right: 10px;
         color: rgb(153, 153, 153);
@@ -35,8 +42,8 @@
       font-size: 1rem;
       line-height: 2rem; // margin-bottom: 20px;
       blockquote {
-        border-left: 2px solid #1ABC9C;
-        background: #F6F6F6;
+        border-left: 2px solid #1abc9c;
+        background: #f6f6f6;
         color: #555;
         font-size: 1.2rem;
         margin: 1.5em 0;
@@ -45,27 +52,30 @@
         }
       }
       @media (max-width: 550px) {
-        pre{
-          margin-left: -20px;
-          margin-right: -20px;
+        pre {
+          // margin-left: -20px;
+          // margin-right: -20px;
           border: none;
           border-radius: 0;
-          code{
-            letter-spacing: .2px
+          code {
+            letter-spacing: 0.2px;
           }
         }
       }
       pre {
+        max-height: 35em;
+        overflow: auto;
+        width: 100%;
         padding: 1em;
         border: none;
-        overflow: auto;
         line-height: 1.45;
-        max-height: 35em;
         position: relative;
+        white-space: pre;
         background: url(../../assets/code-bac.png) #f6f6f6;
         background-size: 30px, 30px;
         font-family: "Source Code Pro", Consolas, Menlo, Monaco, "Courier New", monospace;
         code {
+          overflow-wrap: normal;
           line-height: 1.45;
           background: none;
           white-space: pre;
@@ -97,7 +107,7 @@
         font-weight: 500;
       }
       .read-more:hover {
-        background-color: rgba(0, 0, 0, .8);
+        background-color: rgba(0, 0, 0, 0.8);
         color: #fff;
         padding: 2px 7px;
       }
