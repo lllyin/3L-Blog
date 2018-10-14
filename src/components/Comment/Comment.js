@@ -58,10 +58,11 @@ export default class Comment extends Component {
       autosize = { minRows: 4, maxRows: 8 },
       sendBtnText = '发布评论',
       avatar,
+      onLike,
     } = this.props;
     return (
       <Fragment>
-        {list && <CommentsList list={list} title="评论" />}
+        {list && <CommentsList list={list} title="评论" onLike={onLike} />}
         <div className={`${styles.comment} ${className}`}>
           <div className="comment-header">{title ? <h2>{title}</h2> : null}</div>
           <div className="comment-box">

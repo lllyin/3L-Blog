@@ -7,10 +7,17 @@ import styles from './CommentsList.less';
 export default class CommentsList extends Component {
   static propTypes = {
     list: PropTypes.array.isRequired,
+    onLike: PropTypes.func,
+  };
+
+  static defaultProps = {
+    onLike: (commentItem) => {
+      console.log('点赞评论', commentItem);
+    },
   };
 
   render() {
-    const { title = '评论', list = [], className = '' } = this.props;
+    const { title = '评论', list = [], className = '', onLike } = this.props;
     return (
       <div className={`${styles['comments-list']} ${className}`}>
         <div className="comments-list-topbar">
@@ -19,7 +26,7 @@ export default class CommentsList extends Component {
         </div>
         <ul>
           {list.map(c => (
-            <CommentItem key={c._id} data={c} />
+            <CommentItem key={c._id} data={c} onLike={onLike} />
           ))}
         </ul>
       </div>
