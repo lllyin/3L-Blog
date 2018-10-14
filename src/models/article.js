@@ -47,6 +47,18 @@ export default {
         payload: response.data,
       });
     },
+    *likeAComment({ commentId, success, error }, { call, put }) {
+      const response = yield call(likeComment, { commentId });
+      if (response.status >> 0 === SUCCESS_STATUS) {
+        if (typeof success === 'function') success(response);
+      } else if (typeof error === 'function') {
+        error(response);
+      }
+      yield put({
+        type: 'saveLikeComment',
+        payload: { commentId },
+      });
+    },
   },
 
   reducers: {
@@ -66,6 +78,26 @@ export default {
       return {
         ...state,
         detail: action.payload,
+      };
+    },
+    saveLikeComment(state, action) {
+      const { commentId } = action.payload;
+      const newComments = state.detail.comments.map((c) => {
+        if (c._id === commentId) {
+          console.log(c);
+          return {
+            ...c,
+            like: c.like + 1,
+          };
+        }
+        return c;
+      });
+      return {
+        ...state,
+        detail: {
+          ...state.detail,
+          comments: newComments,
+        },
       };
     },
   },

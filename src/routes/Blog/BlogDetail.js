@@ -49,6 +49,15 @@ export default class BlogDetail extends Component {
     });
   };
 
+  // 处理点赞
+  handleLike = (commentObj) => {
+    const { dispatch } = this.props;
+    return dispatch({
+      type: 'article/likeAComment',
+      commentId: commentObj._id,
+    });
+  };
+
   render() {
     const { article, loading } = this.props;
     return (
@@ -63,6 +72,7 @@ export default class BlogDetail extends Component {
           <Comment
             list={article.detail.comments}
             onComment={this.handleComment}
+            onLike={this.handleLike}
             loading={loading.effects['article/addComment']}
           />
         </Content>
