@@ -97,9 +97,10 @@ export const getRouterData = (app) => {
       component: dynamicWrapper(app, ['example'], () => import('../routes/Contact')),
       name: '联系方式',
     },
-    // '/user/:id': {
-    //   component: dynamicWrapper(app, [], () => import('../routes/User/SomeComponent')),
-    // },
+    '/verify': {
+      component: dynamicWrapper(app, [], () => import('../routes/Verify')),
+      name: '跳转中...',
+    },
   };
   // Get name from ./menu.js or just set it in the router data.
   const menuData = getFlatMenuData(getMenuData());

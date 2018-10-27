@@ -1,8 +1,8 @@
-import React, { Component, Fragment } from 'react';
-import { Input, Button, message } from 'antd';
-import CommentsList from './CommentsList';
+import React, { Component, Fragment } from "react";
+import { Input, Button, message } from "antd";
+import CommentsList from "./CommentsList";
 
-import styles from './Comment.less';
+import styles from "./Comment.less";
 
 const { TextArea } = Input;
 
@@ -11,14 +11,14 @@ export default class Comment extends Component {
     super(props);
 
     this.state = {
-      content: '',
+      content: ""
     };
   }
 
   // 处理评论内容改变
-  handleCommentChange = (e) => {
+  handleCommentChange = e => {
     this.setState({
-      content: e.target.value,
+      content: e.target.value
     });
     const { onChange } = this.props;
     onChange && onChange(e.target.value);
@@ -32,34 +32,25 @@ export default class Comment extends Component {
     if (trimedContent.trim().length <= 0) {
       this.setState(
         {
-          content: trimedContent,
+          content: trimedContent
         },
         () => {
-          message.warning('评论不能为空');
+          message.warning("评论不能为空");
         }
       );
       return false;
     }
-    onComment(content).then(() => {
+    const promiseRes = onComment(content);
+    promiseRes && promiseRes.then(() => {
       this.setState({
-        content: '',
+        content: ""
       });
     });
   };
 
   render() {
     const { content } = this.state;
-    const {
-      className = '',
-      loading,
-      list,
-      title,
-      placeholder = '请输入评论',
-      autosize = { minRows: 4, maxRows: 8 },
-      sendBtnText = '发布评论',
-      avatar,
-      onLike,
-    } = this.props;
+    const { className = "", loading, list, title, placeholder = "请输入评论", autosize = { minRows: 4, maxRows: 8 }, sendBtnText = "发布评论", avatar, onLike } = this.props;
     return (
       <Fragment>
         {list && <CommentsList list={list} title="评论" onLike={onLike} />}
@@ -68,12 +59,7 @@ export default class Comment extends Component {
           <div className="comment-box">
             <div className="comment-content">
               <div>{avatar}</div>
-              <TextArea
-                onChange={this.handleCommentChange}
-                value={content}
-                placeholder={placeholder}
-                autosize={autosize}
-              />
+              <TextArea onChange={this.handleCommentChange} value={content} placeholder={placeholder} autosize={autosize} />
             </div>
             <div className="comment-footer">
               <Button type="primary" onClick={this.handleComment} loading={loading}>

@@ -1,4 +1,6 @@
-export const API_URL = 'https://testapi.liaolunling.top/api/blog';
+export const API_URL = "https://testapi.liaolunling.top/api/blog";
+export const SSO_URL = "https://sso.liaolunling.top/api"; //sso接口地址
+export const SSO_FRONT = "https://sso.liaolunling.top/#/login"; // sso前端地址
 
 // 文字裁剪字符长度
 export const MAX_CHAR_LENGTH = 200;

@@ -1,12 +1,13 @@
-import React from 'react';
-import { Icon, Tooltip } from 'antd';
-import momentAgo from 'moment-ago';
+import React from "react";
+import { Icon, Tooltip } from "antd";
+import momentAgo from "moment-ago";
 
-import styles from './CommentItem.less';
+import styles from "./CommentItem.less";
 
-const CommentItem = ({ data, className = '', onLike }) => {
+const CommentItem = ({ data, className = "", onLike }) => {
+ 
   return (
-    <li className={`${styles['comment-item']} ${className}`}>
+    <li className={`${styles["comment-item"]} ${className}`}>
       <div className="comment-item-meta">
         <span className="name">
           {data.from ? (
@@ -16,8 +17,7 @@ const CommentItem = ({ data, className = '', onLike }) => {
               placement="right"
               title={
                 <div>
-                  有请大佬
-                  <a>登陆</a>/<a>注册</a>, 留下大名
+                  来无影，去无踪。该位大佬虽留言，但未留下任何个人信息。
                 </div>
               }
             >

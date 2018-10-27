@@ -14,6 +14,7 @@
     "dva-loading": "^2.0.5",
     "highlight": "^0.2.4",
     "highlight.js": "^9.12.0",
+    "js-cookie": "^2.2.0",
     "material-ui": "^1.0.0-beta.38",
     "material-ui-icons": "^1.0.0-beta.36",
     "moment": "^2.22.2",
