@@ -3,11 +3,14 @@
   "scripts": {
     "start": "roadhog server",
     "build": "roadhog build",
-    "lint": "eslint --ext .js src",
-    "precommit": "npm run lint"
+    "lint": "eslint src/**/*.js --cache",
+    "lint:fix": "eslint src/**/*.js --cache --fix",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0-rc.1",
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
     "antd": "^3.8.0",
     "axios": "^0.18.0",
     "classnames": "^2.2.6",
@@ -47,7 +50,16 @@
     "eslint-plugin-markdown": "^1.0.0-beta.6",
     "eslint-plugin-react": "^7.11.1",
     "husky": "^0.12.0",
+    "lint-staged": "^8.1.5",
     "redbox-react": "^1.4.3",
     "roadhog": "^2.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": "npm run lint"
   }
 }
