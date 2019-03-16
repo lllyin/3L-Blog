@@ -1,12 +1,10 @@
 import React from 'react';
 
-const Example = () => {
-  return (
-    <div>
+const Example = () => (
+  <div>
       Example
-    </div>
+  </div>
   );
-};
 
 Example.propTypes = {
 };

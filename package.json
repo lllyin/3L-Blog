@@ -3,13 +3,14 @@
   "scripts": {
     "start": "roadhog server",
     "build": "roadhog build",
-    "lint": "eslint --ext .js src test",
+    "lint": "eslint --ext .js src",
     "precommit": "npm run lint"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0-rc.1",
     "antd": "^3.8.0",
     "axios": "^0.18.0",
+    "classnames": "^2.2.6",
     "dva": "^2.3.0",
     "dva-loading": "^2.0.5",
     "highlight": "^0.2.4",
@@ -19,13 +20,17 @@
     "material-ui-icons": "^1.0.0-beta.36",
     "moment": "^2.22.2",
     "moment-ago": "^1.2.0",
+    "path-to-regexp": "^3.0.0",
+    "prop-types": "^15.7.2",
     "qs": "^6.5.2",
     "rc-queue-anim": "^1.6.5",
     "rc-texty": "^0.1.1",
     "react": "^16.8.4",
+    "react-document-title": "^2.0.3",
     "react-dom": "^16.2.0",
     "react-markdown": "^3.3.2",
     "remarkable": "^1.7.1",
+    "setprototypeof": "^1.1.1",
     "url-polyfill": "^1.0.14"
   },
   "devDependencies": {
@@ -42,7 +47,6 @@
     "eslint-plugin-markdown": "^1.0.0-beta.6",
     "eslint-plugin-react": "^7.11.1",
     "husky": "^0.12.0",
-    "react-document-title": "^2.0.3",
     "redbox-react": "^1.4.3",
     "roadhog": "^2.0.0"
   }

@@ -16,13 +16,13 @@ function handleMenuClick(val) {
 
 export const mailFolderListItems = (
   <div>
-    <ListItem button onClick={handleMenuClick.bind(this, 'home')}>
+    <ListItem button onClick={() => handleMenuClick('home')}>
       <ListItemIcon>
         <HomeIcon />
       </ListItemIcon>
       <ListItemText primary="Home" />
     </ListItem>
-    <ListItem button onClick={handleMenuClick.bind(this, 'Contact')}>
+    <ListItem button onClick={() => handleMenuClick('Contact')}>
       <ListItemIcon>
         <ContactIcon />
       </ListItemIcon>

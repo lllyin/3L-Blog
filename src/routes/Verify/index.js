@@ -12,19 +12,19 @@ class Verify extends Component {
     super(props);
 
     this.state = {
-      userInfo: {}
     };
   }
 
   componentWillMount() {
-    const { token } = qs.parse(this.props.location.search, { ignoreQueryPrefix: true });
+    const { dispatch, location: {search}, history } = this.props;
+    const { token } = qs.parse(search, { ignoreQueryPrefix: true });
     if (token) {
-      this.props.dispatch({
+      dispatch({
         type: "user/fetchUser",
         authorization: token,
         success: () => {
           Cookies.set('token',token);
-          this.props.history.replace('/home')
+          history.replace('/home')
         },
         error:()=>{
 

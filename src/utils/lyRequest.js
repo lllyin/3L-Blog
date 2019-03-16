@@ -66,7 +66,5 @@ export default function request(url, options) {
         ...response.data
       });
     })
-    .catch(error => {
-      return Promise.reject(error);
-    });
+    .catch(error => Promise.reject(error));
 }

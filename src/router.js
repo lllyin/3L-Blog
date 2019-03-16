@@ -10,7 +10,7 @@ function RouterConfig({ history, app }) {
   return (
     <Router history={history}>
       <Switch>
-       <Route path="/" render={props => <BlankLayout {...props} />} />
+        <Route path="/" render={props => <BlankLayout {...props} />} />
         <Route path="/" component={Developing} />
       </Switch>
     </Router>

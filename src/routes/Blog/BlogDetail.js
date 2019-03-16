@@ -22,6 +22,18 @@ export default class BlogDetail extends Component {
     };
   }
 
+  componentDidMount() {
+    const { dispatch } = this.props;
+    const { args } = this.state;
+    dispatch({
+      type: "article/fetch"
+    });
+    dispatch({
+      type: "article/fetchDetail",
+      articleId: args.id
+    });
+  }
+
   showConfirm = () => {
     Modal.confirm({
       title: "登录后方可评论",
@@ -36,18 +48,6 @@ export default class BlogDetail extends Component {
       }
     });
   };
-
-  componentDidMount() {
-    const { dispatch } = this.props;
-    const { args } = this.state;
-    dispatch({
-      type: "article/fetch"
-    });
-    dispatch({
-      type: "article/fetchDetail",
-      articleId: args.id
-    });
-  }
 
   // 处理评论提交
   handleComment = content => {

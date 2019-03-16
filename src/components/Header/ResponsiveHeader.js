@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import pathToRegexp from "path-to-regexp";
 import { withRouter } from "dva/router";
-import { Badge } from "../../components/Badge";
 import { connect } from "dva";
+import { Badge } from "../Badge";
 import styles from "./ResponsiveHeader.less";
 import expandArrow from "./expand-arrow.svg";
 import { jumpToLogin } from "../../services/api";
