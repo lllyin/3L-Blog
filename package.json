@@ -3,7 +3,7 @@
   "scripts": {
     "start": "roadhog server",
     "build": "roadhog build",
-    "lint": "eslint src/**/*.js --cache",
+    "lint": "eslint --cache",
     "lint:fix": "eslint src/**/*.js --cache --fix",
     "precommit": "lint-staged"
   },
@@ -60,6 +60,6 @@
     }
   },
   "lint-staged": {
-    "*.js": "npm run lint"
+    "*.js": ["npm run lint", "git add"]
   }
 }
