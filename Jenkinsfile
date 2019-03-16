@@ -15,7 +15,7 @@ pipeline {
                 sh 'echo $BUILD_ID'
                 sh 'node --version'
                 sh 'npm --version'
-                sh './jenkins/scripts/prepare.sh'
+                sh 'npm install --registry=https://registry.npm.taobao.org'
             }
         }
         stage('build') { 
