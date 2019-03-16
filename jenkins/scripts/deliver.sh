@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+echo "部署dist"
+
 NGINX_HOME='/usr/share/nginx/html'
 RPO_NAME='3L-Blog'
 

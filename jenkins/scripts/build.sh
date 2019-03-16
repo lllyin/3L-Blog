@@ -1,5 +1,7 @@
 #!/usr/bin/env sh
 
+echo "打包项目"
+
 echo 'The following "npm" command builds your Node.js/React application for'
 echo 'production in the local "build" directory (i.e. within the'
 echo '"/var/jenkins_home/workspace/simple-node-js-react-app" directory),'
