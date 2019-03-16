@@ -6,11 +6,13 @@ pipeline {
     }
     environment {
        CI = 'true'
+       BUILD_ID = 'DONTKILLMEPLEASE'
    }
     stages {
         stage('prepare') { 
             steps {
                 sh 'whoami'
+                sh 'echo $BUILD_ID'
                 sh 'node --version'
                 sh 'npm --version'
                 sh './jenkins/scripts/prepare.sh'
