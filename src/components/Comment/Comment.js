@@ -1,5 +1,5 @@
 import React, { Component, Fragment } from "react";
-import { message } from "antd";
+import Snackbar from '@material-ui/core/Snackbar';
 import { withStyles } from '@material-ui/core/styles';
 import Button from '@material-ui/core/Button';
 import classNames from 'classnames';
@@ -42,7 +42,8 @@ class Comment extends Component {
     super(props);
 
     this.state = {
-      content: ""
+      content: "",
+      open: false,
     };
   }
 
@@ -65,10 +66,8 @@ class Comment extends Component {
     if (trimedContent.trim().length <= 0) {
       this.setState(
         {
-          content: trimedContent
-        },
-        () => {
-          message.warning("评论不能为空");
+          content: trimedContent,
+          open: true
         }
       );
       return false;
@@ -82,8 +81,13 @@ class Comment extends Component {
     });
   };
 
+  // 关闭弹窗
+  handleClose = () => {
+    this.setState({open: false})
+  }
+
   render() {
-    const { content } = this.state;
+    const { content, open } = this.state;
     const { 
       classes,
       className = "", 
@@ -126,6 +130,16 @@ class Comment extends Component {
               </Button>
               {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
             </div>
+            <Snackbar
+              anchorOrigin={{ vertical: 'top', horizontal: 'center' }}
+              open={open}
+              autoHideDuration={1500}
+              onClose={this.handleClose}
+              ContentProps={{
+                'aria-describedby': 'message-id',
+              }}
+              message={<span id="message-id">神评不能为空</span>}
+            />
           </div>
         </div>
       </Fragment>
