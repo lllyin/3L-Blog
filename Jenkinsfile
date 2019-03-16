@@ -13,9 +13,7 @@ pipeline {
                 sh 'whoami'
                 sh 'node --version'
                 sh 'npm --version'
-                sh 'npm install yarn --registry=https://registry.npm.taobao.org'
-                sh 'yarn --version'
-                sh 'yarn install --registry=https://registry.npm.taobao.org'
+                sh './jenkins/scripts/prepare.sh'
             }
         }
         stage('build') { 
