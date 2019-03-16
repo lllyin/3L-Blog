@@ -40,6 +40,8 @@ module.exports = {
     'react/prefer-stateless-function': 1,
     'no-bitwise': 0,
     'no-unused-expressions': 0,
+    'newline-after-var': 2,
+    'import/prefer-default-export': 0
   },
   settings: {
     polyfills: ['fetch', 'promises', 'url'],
