@@ -5,7 +5,7 @@ import Fade from '@material-ui/core/Fade';
 import { withStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
 
-const jss = theme => ({
+const jss = () => ({
   root: {
     display: 'flex',
     alignItems: 'center'
@@ -23,7 +23,6 @@ const jss = theme => ({
     }
   },
   wrapper: {
-    margin: theme.spacing.unit,
     position: 'relative'
   },
   loading: {
