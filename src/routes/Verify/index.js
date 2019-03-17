@@ -20,7 +20,7 @@ class Verify extends Component {
       location: { search },
       history
     } = this.props;
-    const { token } = qs.parse(search, { ignoreQueryPrefix: true });
+    const { token, from } = qs.parse(search, { ignoreQueryPrefix: true });
 
     if (token) {
       dispatch({
@@ -28,7 +28,12 @@ class Verify extends Component {
         authorization: token,
         success: () => {
           Cookies.set('token', token);
-          history.replace('/home');
+          console.log('跳转到页面', from);
+          if (from) {
+            window.location.replace(from);
+          } else {
+            history.replace('/home');
+          }
         },
         error: () => {}
       });

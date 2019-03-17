@@ -6,8 +6,9 @@ import { SSO_URL, SSO_FRONT } from '../constant/config';
 export function jumpToLogin() {
   const { protocol, host } = window.location;
   const redirect = encodeURIComponent(`${protocol}//${host}/#/verify`);
+  const currentHref = encodeURIComponent(window.location.href);
 
-  window.location.href = `${SSO_FRONT}/login?redirect=${redirect}`;
+  window.location.href = `${SSO_FRONT}/login?redirect=${redirect}&from=${currentHref}`;
 }
 
 // 跳转去登注册页

@@ -17,8 +17,9 @@ function isRightPath(regStr, path) {
   return pathToRegexp(`/${regStr}(.*)`).test(path);
 }
 
-@connect(({ user }) => ({
-  user
+@connect(({ user, loading }) => ({
+  user,
+  loading
 }))
 class ResponsiveHeader extends Component {
   state = {
@@ -38,19 +39,22 @@ class ResponsiveHeader extends Component {
 
   // 处理登出
   handleLoginOut = () => {
-    const { dispatch } = this.props;
-    // jumpToLogin();
+    const { dispatch, loading } = this.props;
 
-    dispatch({
-      type: 'user/logout'
-    });
+    // 当其他异步请求结束后才能退出登录
+    if(!loading.global){
+      dispatch({
+        type: 'user/logout'
+      });
+    }
   };
 
   render() {
     const { isOpen } = this.state;
 
     const {
-      user: { userInfo }
+      user: { userInfo },
+      loading
     } = this.props;
     const isLogin = userInfo && userInfo.name;
     // console.log(user.userInfo.name)
@@ -101,7 +105,7 @@ class ResponsiveHeader extends Component {
                 {isLogin ? userInfo.name : 'LOGIN'}
               </span>
               {isLogin && (
-                <span className="logout" onClick={this.handleLoginOut}>
+                <span className="logout" onClick={this.handleLoginOut} disabled={loading.global}>
                   登出
                 </span>
               )}
