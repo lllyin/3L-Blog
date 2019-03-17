@@ -35,8 +35,12 @@ class Verify extends Component {
             history.replace('/home');
           }
         },
-        error: () => {}
+        error: () => {
+          history.replace('/home');
+        }
       });
+    }else{
+      history.replace('/home');
     }
   }
 
