@@ -19,13 +19,16 @@ const codeMessage = {
   503: "服务不可用，服务器暂时过载或维护",
   504: "网关超时"
 };
+
 function checkStatus(response) {
   if (response.status >= 200 && response.status < 300) {
     return response;
   }
   const errortext = codeMessage[response.status] || response.statusText;
+
   console.log("请求错误");
   const error = new Error(errortext);
+
   error.name = response.status;
   error.response = response;
   throw error;
@@ -46,6 +49,7 @@ export default function request(url, options) {
     headers: { Authorization: token }
   };
   const newOptions = { ...defaultOptions, ...options };
+
   if (newOptions.method === "POST" || newOptions.method === "PUT") {
     newOptions.headers = {
       Accept: "application/json",
@@ -59,6 +63,7 @@ export default function request(url, options) {
     .then(checkStatus)
     .then(response => {
       const { status, statusText, headers } = response;
+
       return Promise.resolve({
         status,
         statusText,

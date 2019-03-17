@@ -10,6 +10,7 @@ function checkStatus(response) {
   }
 
   const error = new Error(response.statusText);
+
   error.response = response;
   throw error;
 }

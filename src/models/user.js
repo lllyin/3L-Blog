@@ -1,8 +1,8 @@
-import { queryUser } from "../services/api";
-import { SUCCESS_STATUS } from "../constant/config";
+import { queryUser } from '../services/api';
+import { SUCCESS_STATUS } from '../constant/config';
 
 export default {
-  namespace: "user",
+  namespace: 'user',
 
   state: {
     userInfo: {}
@@ -10,15 +10,15 @@ export default {
 
   effects: {
     *fetchUser({ authorization, success, error }, { call, put }) {
-      const response = yield call(queryUser, { authorization});
-      console.log(response)
+      const response = yield call(queryUser, { authorization });
+
       if (response.status === 200 && response.code === SUCCESS_STATUS) {
-        if (typeof success === "function") success(response);
-      } else if (typeof error === "function") {
+        if (typeof success === 'function') success(response);
+      } else if (typeof error === 'function') {
         error && error(response);
       }
       yield put({
-        type: "saveUser",
+        type: 'saveUser',
         payload: response.data
       });
     }

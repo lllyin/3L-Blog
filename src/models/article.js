@@ -13,6 +13,7 @@ export default {
   effects: {
     *fetch({ success, error }, { call, put }) {
       const response = yield call(queryArticles);
+
       if (response.status >> 0 === SUCCESS_STATUS) {
         if (typeof success === 'function') success(response);
       } else if (typeof error === 'function') {
@@ -25,6 +26,7 @@ export default {
     },
     *fetchDetail({ articleId, success, error }, { call, put }) {
       const response = yield call(queryArticleDetail, { articleId });
+
       if (response.status >> 0 === SUCCESS_STATUS) {
         if (typeof success === 'function') success(response);
       } else if (typeof error === 'function') {
@@ -37,6 +39,7 @@ export default {
     },
     *addComment({ postId, data, success, error }, { call, put }) {
       const response = yield call(postComment, { postId, data });
+
       if (response.status >> 0 === SUCCESS_STATUS) {
         if (typeof success === 'function') success(response);
       } else if (typeof error === 'function') {
@@ -49,6 +52,7 @@ export default {
     },
     *likeAComment({ commentId, success, error }, { call, put }) {
       const response = yield call(likeComment, { commentId });
+
       if (response.status >> 0 === SUCCESS_STATUS) {
         if (typeof success === 'function') success(response);
       } else if (typeof error === 'function') {
@@ -92,6 +96,7 @@ export default {
         }
         return c;
       });
+
       return {
         ...state,
         detail: {

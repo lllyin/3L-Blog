@@ -17,6 +17,11 @@ export function jumpToRegister() {
   window.location.href = `${SSO_FRONT}/register?redirect=${redirect}`;
 }
 
+// 注销登录
+export function logout(){
+  
+}
+
 // 查询用户信息
 export async function queryUser({ authorization }) {
   if (authorization) {
