@@ -1,14 +1,14 @@
 // This file is shared across the demos.
 
 import React from 'react';
-import { ListItem, ListItemIcon, ListItemText } from 'material-ui/List';
-import DraftsIcon from 'material-ui-icons/Drafts';
-import SendIcon from 'material-ui-icons/Send';
-import MailIcon from 'material-ui-icons/Mail';
-import DeleteIcon from 'material-ui-icons/Delete';
-import ReportIcon from 'material-ui-icons/Report';
-import HomeIcon from 'material-ui-icons/Home';
-import ContactIcon from 'material-ui-icons/Contacts';
+import { ListItem, ListItemIcon, ListItemText } from '@material-ui/core/List';
+import DraftsIcon from '@material-ui/icons/Drafts';
+import SendIcon from '@material-ui/icons/Send';
+import MailIcon from '@material-ui/icons/Mail';
+import DeleteIcon from '@material-ui/icons/Delete';
+import ReportIcon from '@material-ui/icons/Report';
+import HomeIcon from '@material-ui/icons/Home';
+import ContactIcon from '@material-ui/icons/Contacts';
 
 function handleMenuClick(val) {
   console.log('you clicked', val);

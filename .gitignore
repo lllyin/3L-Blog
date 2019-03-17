@@ -11,3 +11,4 @@
 yarn-error.log
 .eslintcache
 npm-debug.log*
+.vscode/
