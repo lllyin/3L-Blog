@@ -4,12 +4,23 @@ import classNames from 'classnames';
 import Fade from '@material-ui/core/Fade';
 import { withStyles } from '@material-ui/core/styles';
 import CircularProgress from '@material-ui/core/CircularProgress';
-import styles from './Content.less';
 
 const jss = theme => ({
   root: {
     display: 'flex',
     alignItems: 'center'
+  },
+  content: {
+    position: 'relative',
+    paddingLeft: 15,
+    paddingRight: 15,
+    '@media (min-width: 992px)': {
+      display: 'flex',
+      flexDirection: 'column',
+      maxWidth: 900,
+      margin: 'auto',
+      padding: '0 0'
+    }
   },
   wrapper: {
     margin: theme.spacing.unit,
@@ -36,11 +47,11 @@ const jss = theme => ({
 });
 
 const Content = ({ children, className, classes, loading = false, ...rest }) => (
-  <Fade in className={classNames({ [classes.loading]: loading })}>
-    <section className={classNames(`${styles.content} ${className}`, classes.wrapper)} {...rest}>
-      <div>{children}</div>
+  <Fade in className={classNames(className, classes.content, classes.wrapper, { [classes.loading]: loading })}>
+    <div {...rest}>
+      <div className='ly-content-wrap'>{children}</div>
       {loading && <CircularProgress size={24} className={classes.buttonProgress} />}
-    </section>
+    </div>
   </Fade>
 );
 
