@@ -1,3 +1,4 @@
+import Cookies from 'js-cookie';
 import lyRequest from '../utils/lyRequest';
 import { SSO_URL, SSO_FRONT } from '../constant/config';
 
@@ -18,8 +19,8 @@ export function jumpToRegister() {
 }
 
 // 注销登录
-export function logout(){
-  
+export function clearUsesrCookies() {
+  Cookies.remove('token');
 }
 
 // 查询用户信息

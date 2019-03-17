@@ -1,4 +1,4 @@
-import { queryUser } from '../services/api';
+import { queryUser, clearUsesrCookies } from '../services/api';
 import { SUCCESS_STATUS } from '../constant/config';
 
 export default {
@@ -21,6 +21,13 @@ export default {
         type: 'saveUser',
         payload: response.data
       });
+    },
+    *logout(_, { put }) {
+      clearUsesrCookies();
+      yield put({
+        type: 'logoutUser',
+        payload: {}
+      });
     }
   },
 
@@ -29,6 +36,12 @@ export default {
       return {
         ...state,
         userInfo: aciton.payload
+      };
+    },
+    logoutUser(state, action) {
+      return {
+        ...state,
+        userInfo: action.payload
       };
     }
   }

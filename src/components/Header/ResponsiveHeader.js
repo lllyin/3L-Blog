@@ -38,7 +38,12 @@ class ResponsiveHeader extends Component {
 
   // 处理登出
   handleLoginOut = () => {
-    jumpToLogin();
+    const { dispatch } = this.props;
+    // jumpToLogin();
+
+    dispatch({
+      type: 'user/logout'
+    });
   };
 
   render() {
@@ -95,7 +100,11 @@ class ResponsiveHeader extends Component {
               <span onClick={this.handleLogin} className="username">
                 {isLogin ? userInfo.name : 'LOGIN'}
               </span>
-              {isLogin && <span className="logout" onClick={this.handleLoginOut}>登出</span>}
+              {isLogin && (
+                <span className="logout" onClick={this.handleLoginOut}>
+                  登出
+                </span>
+              )}
             </a>
             <a
               href="//www.liaolunling.top"
