@@ -1,5 +1,6 @@
 import dva from 'dva';
 import 'rc-texty/assets/index.css';
+import 'moment/locale/zh-cn';
 import createLoading from 'dva-loading';
 import './index.css';
 
@@ -11,7 +12,7 @@ const app = dva();
 app.use(createLoading());
 
 // 3. Model
-// app.model(require('./models/example').default);
+app.model(require('./models/user').default);
 // app.model(require('./models/article').default);
 
 // 4. Router

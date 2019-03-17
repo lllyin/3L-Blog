@@ -4,7 +4,7 @@ import { ResponsiveHeader } from '../../components/Header';
 import MarkdownShow from '../../components/Markdown/MarkdownShow';
 import PanelTitle from '../../components/Panel/PanelTitle';
 import { Content } from '../../components/Layout';
-import { totop, lightbox, fixnav } from './totop.md.js';
+import { totop, lightbox, fixnav } from './totop.md';
 
 import styles from './index.less';
 
@@ -19,8 +19,8 @@ export default class Project extends Component {
             className="queue-simple"
             delay={300}
             duration={500}
-            appear={true}
-            leaveReverse={true}
+            appear
+            leaveReverse
           >
             <div className={styles['project-item']}>
               <PanelTitle

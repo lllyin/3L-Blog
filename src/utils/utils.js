@@ -54,7 +54,7 @@ export function getTimeDistance(type) {
 
 export function getPlainNode(nodeList, parentPath = '') {
   const arr = [];
-  nodeList.forEach(node => {
+  nodeList.forEach((node) => {
     const item = node;
     item.path = `${parentPath}/${item.path || ''}`.replace(/\/+/g, '/');
     item.exact = true;
@@ -74,15 +74,15 @@ function accMul(arg1, arg2) {
   let m = 0;
   const s1 = arg1.toString();
   const s2 = arg2.toString();
-  m += s1.split(".").length > 1 ? s1.split(".")[1].length : 0;
-  m += s2.split(".").length > 1 ? s2.split(".")[1].length : 0;
-  return Number(s1.replace(".", "")) * Number(s2.replace(".", "")) / 10 ** m;
+  m += s1.split('.').length > 1 ? s1.split('.')[1].length : 0;
+  m += s2.split('.').length > 1 ? s2.split('.')[1].length : 0;
+  return Number(s1.replace('.', '')) * Number(s2.replace('.', '')) / 10 ** m;
 }
 
 export function digitUppercase(n) {
   const fraction = ['角', '分'];
   const digit = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖'];
-  const unit = [['元', '万', '亿'],['', '拾', '佰', '仟', '万']];
+  const unit = [['元', '万', '亿'], ['', '拾', '佰', '仟', '万']];
   let num = Math.abs(n);
   let s = '';
   fraction.forEach((item, index) => {
@@ -113,7 +113,7 @@ function getRelation(str1, str2) {
   const arr2 = str2.split('/');
   if (arr2.every((item, index) => item === arr1[index])) {
     return 1;
-  } else if (arr1.every((item, index) => item === arr2[index])) {
+  } if (arr1.every((item, index) => item === arr2[index])) {
     return 2;
   }
   return 3;
@@ -149,7 +149,7 @@ export function getRoutes(path, routerData) {
   // Get the route to be rendered to remove the deep rendering
   const renderArr = getRenderArr(routes);
   // Conversion and stitching parameters
-  const renderRoutes = renderArr.map(item => {
+  const renderRoutes = renderArr.map((item) => {
     const exact = !routes.some(route => route !== item && getRelation(route, item) === 1);
     return {
       exact,

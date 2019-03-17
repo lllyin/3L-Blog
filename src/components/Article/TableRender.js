@@ -6,6 +6,6 @@ export default class TableRender extends React.PureComponent {
       <table className="pure-table pure-table-horizontal">
         {this.props.children}
       </table>
-    )
+    );
   }
 }

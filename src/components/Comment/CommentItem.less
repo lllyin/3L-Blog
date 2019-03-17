@@ -1,0 +1,56 @@
+@import "../../style/themes/default.less";
+@prefix: comment-item;
+
+.comment-item {
+  padding: 12px 20px 10px;
+  font-size: @font-size-base;
+  position: relative;
+  color: @text-color;
+  &:not(:first-child)::after {
+    border-bottom-width: 0.5px;
+  }
+  &:not(:first-child)::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    display: block;
+    margin: 0 20px;
+    border-bottom-style: solid;
+    border-bottom-color: #f6f6f6;
+    border-bottom-width: 1px;
+    content: "";
+  }
+  :global {
+    .@{prefix}-meta {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      .name {
+        font-size: @font-size-base;
+        color: @base-color;
+        cursor: pointer;
+      }
+      .date {
+        color: @grey-color;
+      }
+    }
+    .@{prefix}-content {
+      margin-bottom: 6px;
+      margin-top: 6px;
+      line-height: 25px;
+    }
+    .@{prefix}-footer {
+      color: @grey-color;
+      &:hover {
+        color: @grey-color-hover;
+      }
+      .like-btn {
+        cursor: pointer;
+        .icon {
+          width: 24px;
+        }
+      }
+    }
+  }
+}

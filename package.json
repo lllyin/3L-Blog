@@ -3,44 +3,63 @@
   "scripts": {
     "start": "roadhog server",
     "build": "roadhog build",
-    "lint": "eslint --ext .js src test",
-    "precommit": "npm run lint"
+    "lint": "eslint --cache",
+    "analyze": "cross-env ANALYZE=1 roadhog build",
+    "lint:fix": "eslint src/**/*.js --cache --fix",
+    "precommit": "lint-staged"
   },
   "dependencies": {
     "@babel/polyfill": "^7.0.0-rc.1",
-    "antd": "^3.8.0",
+    "@material-ui/core": "^3.9.2",
+    "@material-ui/icons": "^3.0.2",
     "axios": "^0.18.0",
+    "classnames": "^2.2.6",
     "dva": "^2.3.0",
     "dva-loading": "^2.0.5",
-    "highlight": "^0.2.4",
-    "highlight.js": "^9.12.0",
-    "material-ui": "^1.0.0-beta.38",
-    "material-ui-icons": "^1.0.0-beta.36",
+    "js-cookie": "^2.2.0",
     "moment": "^2.22.2",
+    "moment-ago": "^1.2.3",
+    "path-to-regexp": "^3.0.0",
+    "prop-types": "^15.7.2",
     "qs": "^6.5.2",
     "rc-queue-anim": "^1.6.5",
     "rc-texty": "^0.1.1",
-    "react": "^16.2.0",
-    "react-dom": "^16.2.0",
+    "react": "^16.8.4",
+    "react-document-title": "^2.0.3",
+    "react-dom": "^16.8.4",
     "react-markdown": "^3.3.2",
     "remarkable": "^1.7.1",
+    "setprototypeof": "^1.1.1",
     "url-polyfill": "^1.0.14"
   },
   "devDependencies": {
     "babel-plugin-dva-hmr": "^0.4.1",
     "babel-plugin-import": "^1.8.0",
     "babel-plugin-transform-remove-console": "^6.9.4",
-    "eslint": "^4.14.0",
-    "eslint-config-airbnb": "^16.1.0",
-    "eslint-config-umi": "^0.1.1",
-    "eslint-plugin-compat": "^2.3.0",
-    "eslint-plugin-flowtype": "^2.34.1",
-    "eslint-plugin-import": "^2.6.0",
-    "eslint-plugin-jsx-a11y": "^5.1.1",
-    "eslint-plugin-react": "^7.1.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.4.0",
+    "eslint-config-airbnb": "^17.0.0",
+    "eslint-config-prettier": "^3.0.1",
+    "eslint-plugin-babel": "^5.1.0",
+    "eslint-plugin-compat": "^2.6.2",
+    "eslint-plugin-import": "^2.14.0",
+    "eslint-plugin-jsx-a11y": "^6.1.2",
+    "eslint-plugin-markdown": "^1.0.0-beta.6",
+    "eslint-plugin-react": "^7.11.1",
     "husky": "^0.12.0",
-    "react-document-title": "^2.0.3",
+    "lint-staged": "^8.1.5",
     "redbox-react": "^1.4.3",
     "roadhog": "^2.0.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.js": [
+      "npm run lint",
+      "git add"
+    ]
   }
 }

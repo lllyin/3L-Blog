@@ -8,4 +8,7 @@
 
 # misc
 .DS_Store
+yarn-error.log
+.eslintcache
 npm-debug.log*
+.vscode/

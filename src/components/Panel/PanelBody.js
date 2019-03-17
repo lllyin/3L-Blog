@@ -17,10 +17,8 @@ export default class PanelBody extends Component {
             <li>1、引入jQuery</li>
             <li>2、引入项目中的totop.js</li>
             <li>
-              3、在需要返回顶部的页面&lt;head&gt;标签内添加
-                                                 <code>
-                &lt;meta name="totop" toggle="true"&gt;
-                                                 </code>
+              3、在需要返回顶部的页面 &lt; head &gt; 标签内添加
+              <code> &lt; meta name=&quot;totop&quot; toggle=&quot;true&quot; &gt; </code>
               一行代码即可
             </li>
           </ol>
@@ -28,7 +26,7 @@ export default class PanelBody extends Component {
         <div className="online_link">
           <span>演示地址：</span>
           <ol className="text_detail">
-            <a href="http://liaolunling.top/demo/totop/index.html" target="_blank">
+            <a href="http://liaolunling.top/demo/totop/index.html" target="_blank" rel="noopener noreferrer">
               http://liaolunling.top/demo/totop/index.html
             </a>
           </ol>

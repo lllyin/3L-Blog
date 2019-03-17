@@ -1,21 +1,23 @@
-.header{
+@import "../../style/themes/default.less";
+
+.header {
   position: relative;
-  :global{
-    .nav-upper{
+  :global {
+    .nav-upper {
       display: flex;
       color: #ccc;
       padding: 30px 20px;
       justify-content: space-between;
-      .arrow{
+      .arrow {
         transition: all 0.3s ease;
         width: 35px;
-        height: 35px
+        height: 35px;
       }
-      .arrow.open{
+      .arrow.open {
         transform: rotate(180deg);
         transform-origin: center center;
       }
-      .logo{
+      .logo {
         width: 65px;
         height: 35px;
         line-height: 35px;
@@ -25,21 +27,21 @@
         letter-spacing: 1px;
       }
     }
-    .nav-lower.open{
+    .nav-lower.open {
       display: block;
-      :local{
-        animation: toShow .6s ease-out;
+      :local {
+        animation: toShow 0.6s ease-out;
       }
-    }    
-    .nav-lower{
+    }
+    .nav-lower {
       width: 100%;
       display: none;
-      transition: all .25s ease;
-      .nav{
+      transition: all 0.25s ease;
+      .nav {
         display: flex;
         flex-direction: column;
       }
-      .link{
+      .link {
         border-bottom: 1px solid #eaeaea;
         font-size: 14px;
         padding: 16px 20px;
@@ -47,26 +49,29 @@
         text-transform: uppercase;
         transition: color 0.2s ease;
       }
-      .link:hover{
-        color: #000;        
+      .link:hover {
+        color: #000;
       }
-      .link.active{
+      .link.active {
         color: #000;
         font-size: 13px;
       }
     }
-    .login-btn{
+    .login-btn {
+      position: relative;
       color: #333;
       font-size: 12px;
+      display: flex;
+      justify-content: space-between;
     }
-    .join-btn{
+    .join-btn {
       border: 0;
       font-size: 14px;
-      padding: 16px 20px;                
+      padding: 16px 20px;
       color: #ff0080;
       transition: color 0.2s ease;
     }
-    .chat-btn{
+    .chat-btn {
       display: flex;
       justify-content: space-between;
       align-items: center;
@@ -74,59 +79,93 @@
   }
 
   // 媒体查询:大屏设备生效
-  :global{
-    @media (min-width: 992px){
+  :global {
+    @media (min-width: 992px) {
       display: flex;
       max-width: 900px;
-      margin: auto;       
+      margin: auto;
       .nav-upper {
         padding: 30px 0;
       }
-      .nav-lower.open{
+      .nav-lower.open {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         margin: -2px 0 0 20px;
       }
-      .nav-lower{
+      .nav-lower {
         display: flex;
         flex-direction: row;
         justify-content: space-between;
         align-items: center;
         margin: -2px 0 0 20px;
-        .nav{
+        .nav {
           flex-direction: row;
         }
-        .link{
-          border: 0;          
+        .link {
+          border: 0;
           padding: 10px;
           font-size: 12px;
-          color: #999;          
+          color: #999;
         }
-        .join-btn{
+        .login-btn {
+          position: relative;
+          color: #333;
+          font-size: 12px;
+          display: block;
+          &:hover .logout {
+            visibility: visible;
+            bottom: -35px;
+            transition: all 0.1s linear;
+          }
+          .logout {
+            position: absolute;
+            visibility: hidden;
+            left: -16px;
+            bottom: -40px;
+            width: 180%;
+            text-align: center;
+            padding: 10px 0;
+            box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
+            &::before {
+              position: absolute;
+              content: "";
+              width: 0;
+              height: 0;
+              top: -16px;
+              left: 50%;
+              margin-left: -8px;
+              border: 8px solid;
+              border-color: transparent transparent rgba(0,0,0,.1);
+            }
+            &:hover {
+              color: @base-color;
+            }
+          }
+        }
+        .join-btn {
           padding: 10px;
           font-size: 12px;
         }
       }
-      .arrow-box{
+      .arrow-box {
         display: none;
       }
     }
-    a{
+    a {
       text-decoration: none;
     }
   }
 }
 
-
-@keyframes toShow{
-  from{
+@keyframes toShow {
+  from {
     opacity: 0;
     filter: blur(3px);
   }
-  to{
+  to {
     opacity: 1;
     filter: blur(0);
   }
-} 
+}

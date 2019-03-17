@@ -1,0 +1,29 @@
+@import "../../style/themes/default.less";
+
+@comment: comment;
+
+.comment {
+  margin: 15px 0;
+  :global {
+    .@{comment}-header {
+      font-size: @font-size-lg;
+      h2 {
+        font-size: inherit;
+      }
+    }
+    .@{comment}-box {
+      background: #fafafa;
+      box-shadow: 0px 1px 0px 0px rgba(0, 0, 0, 0.09);
+      border-radius: 2px 2px 0px 0px;
+      padding: 15px 20px;
+      border-top: 1px solid rgba(0, 0, 0, 0.09);
+    }
+    .@{comment}-content {
+    }
+    .@{comment}-footer {
+      display: flex;
+      justify-content: flex-end;
+      margin-top: 15px;
+    }
+  }
+}

@@ -1,6 +1,5 @@
 {
   "entry": "src/index.js",
-  "extraBabelPlugins": [["import", { "libraryName": "antd", "libraryDirectory": "es", "style": true }]],
   "env": {
     "development": {
       "extraBabelPlugins": [
@@ -19,5 +18,8 @@
     "template": "./src/index.ejs"
   },
   "ignoreMomentLocale": true,
-  "hash": true
+  "hash": true,
+  "theme": {
+    "@primary-color": "#1abc9c"
+  }
 }
