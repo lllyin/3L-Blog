@@ -49,7 +49,7 @@
     "husky": "^0.12.0",
     "lint-staged": "^8.1.5",
     "redbox-react": "^1.4.3",
-    "teapack": "^1.0.4"
+    "teapack": "latest"
   },
   "husky": {
     "hooks": {

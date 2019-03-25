@@ -7795,10 +7795,10 @@ tar@^4:
     safe-buffer "^5.1.2"
     yallist "^3.0.2"
 
-teapack@^1.0.4:
-  version "1.0.4"
-  resolved "https://registry.npmjs.org/teapack/-/teapack-1.0.4.tgz#e8e25a17a067442d25d38d0c8fc8caa2c5bcdf60"
-  integrity sha512-zpf3hh5Dq7U4lnOUvIgNjiLBBzBSd563LXpwL0/IJfqi7IQ59QtJx2iuEwQ7jClPpWM8Dk6Y1pVNFEntnRJXXw==
+teapack@latest:
+  version "1.0.5"
+  resolved "https://registry.npmjs.org/teapack/-/teapack-1.0.5.tgz#ad8adf997631eb9ca01f158826c2a7478b104786"
+  integrity sha512-F8KBiq2m0udiH5esupbRCt2/OkqOap3P3S5a4XaMVm+jWU8UB0ZK7jWXzn0sQ9zl0cIEIuDuDCMo/NKgctTSAQ==
   dependencies:
     "@babel/core" "^7.3.4"
     "@babel/plugin-proposal-class-properties" "^7.4.0"
