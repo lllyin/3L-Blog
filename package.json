@@ -1,8 +1,8 @@
 {
   "private": true,
   "scripts": {
-    "start": "roadhog server",
-    "build": "roadhog build",
+    "start": "teapack dev",
+    "build": "teapack build",
     "lint": "eslint --cache",
     "analyze": "cross-env ANALYZE=1 roadhog build",
     "lint:fix": "eslint src/**/*.js --cache --fix",
@@ -49,7 +49,7 @@
     "husky": "^0.12.0",
     "lint-staged": "^8.1.5",
     "redbox-react": "^1.4.3",
-    "roadhog": "^2.5.0-beta.4"
+    "teapack": "^1.0.4"
   },
   "husky": {
     "hooks": {
