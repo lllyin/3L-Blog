@@ -2,8 +2,8 @@ import lyRequest from '../utils/lyRequest';
 import { API_URL } from '../constant/config';
 
 // 获取文章列表
-export async function queryArticles() {
-  return lyRequest(`${API_URL}/articles`, {});
+export async function queryArticles(params) {
+  return lyRequest(`${API_URL}/articles`, { params });
 }
 
 // 获取文章详情

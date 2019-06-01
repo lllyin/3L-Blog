@@ -5,24 +5,41 @@ export default {
   namespace: 'article',
 
   state: {
+    params: {
+      page: 1,
+      pageSize: 10
+    },
     list: [],
     detail: {},
-    total: 0,
+    total: 0
   },
 
   effects: {
-    *fetch({ success, error }, { call, put }) {
-      const response = yield call(queryArticles);
+    *fetch({ loadingMore }, { call, put, select }) {
+      const queryParams = yield select(({ article }) => article.params);
 
-      if (response.status >> 0 === SUCCESS_STATUS) {
-        if (typeof success === 'function') success(response);
-      } else if (typeof error === 'function') {
-        error(response);
+      if (loadingMore) {
+        queryParams.page += 1;
+        const response = yield call(queryArticles, queryParams);
+
+        yield put({
+          type: 'saveMore',
+          payload: response.data,
+          params: queryParams
+        });
+      } else {
+        const params = {
+          page: 1,
+          pageSize: 10
+        };
+        const response = yield call(queryArticles, params);
+
+        yield put({
+          type: 'save',
+          payload: response.data,
+          params
+        });
       }
-      yield put({
-        type: 'save',
-        payload: response.data,
-      });
     },
     *fetchDetail({ articleId, success, error }, { call, put }) {
       const response = yield call(queryArticleDetail, { articleId });
@@ -34,7 +51,7 @@ export default {
       }
       yield put({
         type: 'saveDetail',
-        payload: response.data,
+        payload: response.data
       });
     },
     *addComment({ postId, data, success, error }, { call, put }) {
@@ -47,7 +64,7 @@ export default {
       }
       yield put({
         type: 'saveComment',
-        payload: response.data,
+        payload: response.data
       });
     },
     *likeAComment({ commentId, success, error }, { call, put }) {
@@ -60,38 +77,45 @@ export default {
       }
       yield put({
         type: 'saveLikeComment',
-        payload: { commentId },
+        payload: { commentId }
       });
-    },
+    }
   },
 
   reducers: {
-    save(state, aciton) {
+    save(state, action) {
       return {
         ...state,
-        list: aciton.payload,
+        list: action.payload,
+        params: action.params
+      };
+    },
+    saveMore(state, action) {
+      return {
+        ...state,
+        list: [...state.list, ...action.payload],
+        params: action.params
       };
     },
     saveDetail(state, aciton) {
       return {
         ...state,
-        detail: aciton.payload,
+        detail: aciton.payload
       };
     },
     saveComment(state, action) {
       return {
         ...state,
-        detail: action.payload,
+        detail: action.payload
       };
     },
     saveLikeComment(state, action) {
       const { commentId } = action.payload;
-      const newComments = state.detail.comments.map((c) => {
+      const newComments = state.detail.comments.map(c => {
         if (c._id === commentId) {
-          console.log(c);
           return {
             ...c,
-            like: c.like + 1,
+            like: c.like + 1
           };
         }
         return c;
@@ -101,9 +125,9 @@ export default {
         ...state,
         detail: {
           ...state.detail,
-          comments: newComments,
-        },
+          comments: newComments
+        }
       };
-    },
-  },
+    }
+  }
 };
