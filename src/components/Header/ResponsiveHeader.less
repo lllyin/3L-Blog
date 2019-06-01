@@ -1,4 +1,4 @@
-@import "../../style/themes/default.less";
+@import '../../style/themes/default.less';
 
 .header {
   position: relative;
@@ -42,6 +42,7 @@
         flex-direction: column;
       }
       .link {
+        cursor: pointer;
         border-bottom: 1px solid #eaeaea;
         font-size: 14px;
         padding: 16px 20px;
@@ -104,6 +105,7 @@
           flex-direction: row;
         }
         .link {
+          cursor: pointer;
           border: 0;
           padding: 10px;
           font-size: 12px;
@@ -130,14 +132,14 @@
             box-shadow: 0 0 5px rgba(0, 0, 0, 0.1);
             &::before {
               position: absolute;
-              content: "";
+              content: '';
               width: 0;
               height: 0;
               top: -16px;
               left: 50%;
               margin-left: -8px;
               border: 8px solid;
-              border-color: transparent transparent rgba(0,0,0,.1);
+              border-color: transparent transparent rgba(0, 0, 0, 0.1);
             }
             &:hover {
               color: @base-color;

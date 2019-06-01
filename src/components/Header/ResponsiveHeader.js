@@ -1,11 +1,11 @@
-import React, { Component } from "react";
-import pathToRegexp from "path-to-regexp";
-import { withRouter } from "dva/router";
-import { connect } from "dva";
-import { Badge } from "../Badge";
-import styles from "./ResponsiveHeader.less";
-import expandArrow from "./expand-arrow.svg";
-import { jumpToLogin } from "../../services/api";
+import React, { Component } from 'react';
+import pathToRegexp from 'path-to-regexp';
+import { withRouter } from 'dva/router';
+import { connect } from 'dva';
+import { Badge } from '../Badge';
+import styles from './ResponsiveHeader.less';
+import expandArrow from './expand-arrow.svg';
+import { jumpToLogin } from '../../services/api';
 
 /**
  * 匹配路径
@@ -17,8 +17,9 @@ function isRightPath(regStr, path) {
   return pathToRegexp(`/${regStr}(.*)`).test(path);
 }
 
-@connect(({ user }) => ({
-  user
+@connect(({ user, loading }) => ({
+  user,
+  loading
 }))
 class ResponsiveHeader extends Component {
   state = {
@@ -27,6 +28,7 @@ class ResponsiveHeader extends Component {
 
   handleExpandBtnClick = () => {
     const { isOpen } = this.state;
+
     this.setState({ isOpen: !isOpen });
   };
 
@@ -36,21 +38,30 @@ class ResponsiveHeader extends Component {
   };
 
   // 处理登出
-  handleLogin = () => {
-    jumpToLogin();
+  handleLoginOut = () => {
+    const { dispatch, loading } = this.props;
+
+    // 当其他异步请求结束后才能退出登录
+    if(!loading.global){
+      dispatch({
+        type: 'user/logout'
+      });
+    }
   };
 
   render() {
     const { isOpen } = this.state;
-    console.log("header 用户信息", this.props.user);
+
     const {
-      user: { userInfo }
+      user: { userInfo },
+      loading
     } = this.props;
     const isLogin = userInfo && userInfo.name;
     // console.log(user.userInfo.name)
     const {
       location: { pathname }
     } = this.props;
+
     return (
       <header className={styles.header}>
         <aside className="nav-upper">
@@ -58,44 +69,53 @@ class ResponsiveHeader extends Component {
             <div className="logo">3L先生</div>
           </a>
           <a className="arrow-box" onClick={this.handleExpandBtnClick}>
-            <div className={`arrow ${isOpen ? "open" : ""}`}>
+            <div className={`arrow ${isOpen ? 'open' : ''}`}>
               <img width={35} height={35} src={expandArrow} alt="展开" />
             </div>
           </a>
         </aside>
-        <aside className={`nav-lower ${isOpen ? "open" : ""}`}>
+        <aside className={`nav-lower ${isOpen ? 'open' : ''}`}>
           <div className="nav left">
-            <a href="#/home" className={`link ${isRightPath("home", pathname) ? "active" : ""}`}>
+            <a href="#/home" className={`link ${isRightPath('home', pathname) ? 'active' : ''}`}>
               HOME
             </a>
-            <a href="#/resume" className={`link ${isRightPath("resume", pathname) ? "active" : ""}`}>
+            <a href="#/resume" className={`link ${isRightPath('resume', pathname) ? 'active' : ''}`}>
               RESUME
             </a>
-            <a href="#/project" className={`link ${isRightPath("project", pathname) ? "active" : ""}`}>
+            <a href="#/project" className={`link ${isRightPath('project', pathname) ? 'active' : ''}`}>
               PROJECT
             </a>
-            <a href="#/blog" className={`link ${isRightPath("blog", pathname) ? "active" : ""}`}>
+            <a href="#/blog" className={`link ${isRightPath('blog', pathname) ? 'active' : ''}`}>
               BLOG
             </a>
-            <a href="#/my-life" className={`link ${isRightPath("my-life", pathname) ? "active" : ""}`}>
+            <a href="#/my-life" className={`link ${isRightPath('my-life', pathname) ? 'active' : ''}`}>
               MY LIFE
             </a>
-            <a href="#/contact" className={`link ${isRightPath("contact", pathname) ? "active" : ""}`}>
+            <a href="#/contact" className={`link ${isRightPath('contact', pathname) ? 'active' : ''}`}>
               CONTACT
             </a>
           </div>
           <div className="nav right">
-            <a href="#/chat" className={`chat-btn link ${isRightPath("chat", pathname) ? "active" : ""}`}>
+            <a href="#/chat" className={`chat-btn link ${isRightPath('chat', pathname) ? 'active' : ''}`}>
               CHAT
               <Badge count="99" />
             </a>
-            <a className={`login-btn link ${isRightPath("login", pathname) ? "active" : ""}`}>
+            <a className={`login-btn link ${isRightPath('login', pathname) ? 'active' : ''}`}>
               <span onClick={this.handleLogin} className="username">
-                {isLogin ? userInfo.name : "LOGIN"}
+                {isLogin ? userInfo.name : 'LOGIN'}
               </span>
-              {isLogin && <span className="logout">登出</span>}
+              {isLogin && (
+                <span className="logout" onClick={this.handleLoginOut} disabled={loading.global}>
+                  登出
+                </span>
+              )}
             </a>
-            <a href="//www.liaolunling.top" target="_blank" rel="noopener noreferrer" className={`join-btn link ${isRightPath("join", pathname) ? "active" : ""}`}>
+            <a
+              href="//www.liaolunling.top"
+              target="_blank"
+              rel="noopener noreferrer"
+              className={`join-btn link ${isRightPath('join', pathname) ? 'active' : ''}`}
+            >
               旧版网站
             </a>
           </div>
@@ -106,4 +126,5 @@ class ResponsiveHeader extends Component {
 }
 
 const ResponsiveHeader2 = withRouter(ResponsiveHeader);
+
 export default ResponsiveHeader2;

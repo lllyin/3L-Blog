@@ -22,6 +22,7 @@ export default class BlankLayout extends Component {
     let title = "3L先生";
     let currRouterData = null;
     // match params path
+
     Object.keys(routerData).forEach(key => {
       if (pathToRegexp(key).test(pathname)) {
         currRouterData = routerData[key];
@@ -36,6 +37,7 @@ export default class BlankLayout extends Component {
   render() {
     const { match, routerData } = this.props;
     // console.log('BlankLayout', this.props)
+
     return (
       <DocumentTitle title={this.getPageTitle()}>
         <QueueAnim type="top" delay={300}>
