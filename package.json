@@ -21,7 +21,7 @@
     "moment-ago": "^1.2.3",
     "path-to-regexp": "^3.0.0",
     "prop-types": "^15.7.2",
-    "qs": "^6.5.2",
+    "qs": "^6.7.3",
     "rc-queue-anim": "^1.6.5",
     "rc-texty": "^0.2.0",
     "react": "^16.8.4",
